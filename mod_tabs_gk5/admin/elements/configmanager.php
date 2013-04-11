@@ -1,8 +1,13 @@
 <?php
 
 defined('JPATH_BASE') or die;
+// Joomla 3.0! compability
+define(DS, DIRECTORY_SEPARATOR);
 
 jimport('joomla.form.formfield');
+jimport('joomla.filesystem.file');
+jimport('joomla.filesystem.folder');
+
 
 class JFormFieldConfigManager extends JFormField {
 	protected $type = 'ConfigManager';
@@ -102,10 +107,10 @@ class JFormFieldConfigManager extends JFormField {
 		$html = '';
 		$html .= '<div id="config_manager_form">';
 		$html .= $msg;
-		$html .= '<div><label>'.JText::_('MOD_TABS_GK5_CONFIG_LOAD').'</label>'.$file_select.'<button id="config_manager_load">'.JText::_('MOD_TABS_GK5_CONFIG_LOAD_BTN').'</button></div>';
-		$html .= '<div><label>'.JText::_('MOD_TABS_GK5_CONFIG_SAVE').'</label><input type="text" id="config_manager_save_filename" /><span>.json</span><button id="config_manager_save">'.JText::_('MOD_TABS_GK5_CONFIG_SAVE_BTN').'</button></div>';
-		$html .= '<div><label>'.JText::_('MOD_TABS_GK5_CONFIG_DELETE').'</label>'.$file_delete.'<button id="config_manager_delete">'.JText::_('MOD_TABS_GK5_CONFIG_DELETE_BTN').'</button></div>';
-		$html .= '<div><label>'.JText::_('MOD_TABS_GK4_CONFIG_DIRECTORY').'</label><span>'.$base_path.'</span></div>';
+		$html .= '<div><label>'.JText::_('MOD_TABS_GK5_CONFIG_LOAD').' </label>'.$file_select.'<button class="btn" id="config_manager_load"><i class="icon-download"></i>'.JText::_('MOD_TABS_GK5_CONFIG_LOAD_BTN').' </button></div>';
+		$html .= '<div><label>'.JText::_('MOD_TABS_GK5_CONFIG_SAVE').' </label><div class="input-append"><input type="text" id="config_manager_save_filename" /><span class="add-on">.json</span></div><button class="btn" id="config_manager_save"><i class="icon-upload"></i>'.JText::_('MOD_TABS_GK5_CONFIG_SAVE_BTN').'</button></div>';
+		$html .= '<div><label>'.JText::_('MOD_TABS_GK5_CONFIG_DELETE').' </label>'.$file_delete.'<button class="btn"  id="config_manager_delete"><i class="icon-remove"></i>'.JText::_('MOD_TABS_GK5_CONFIG_DELETE_BTN').'</button></div>';
+		$html .= '<div><span class="label label-warning"> '.JText::_('MOD_TABS_GK4_CONFIG_DIRECTORY').'</span><span class="label">'.$base_path.'</span></div>';
 		$html .= '</div>';
 		// finish the output
 		return $html;
@@ -114,7 +119,7 @@ class JFormFieldConfigManager extends JFormField {
 	protected function getOptions() {
 		$options = array();
 		$path = (string) $this->element['directory'];
-		if (!is_dir($path)) $path = JPATH_ROOT.'/'.$path;
+		if (!is_dir($path)) $path = JPATH_ROOT.DS.$path;
 		$files = JFolder::files($path, '.json');
 
 		if (is_array($files)) {

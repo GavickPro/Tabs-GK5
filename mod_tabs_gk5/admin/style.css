@@ -7,186 +7,27 @@
  * @ Released under GNU/GPL License :  http://www.gnu.org/copyleft/gpl.html
  * @version $Revision:  GK5 1.0 $
  **/
-::selection {
-	background: #415e7f;
-	color: #fff;
-}
-
-#jform_params_about_us-lbl,
-#jform_params_tabs_data-lbl,
-#jform_params___field1-lbl,#invisible {
+ 
+div#invisible,
+div#options-TABS_MANAGER .control-label,
+select.gk_tab_edit_type + div,
+select.gk_tab_edit_content_module + div,
+select.gk_tab_add_type + div,
+select.gk_tab_add_content_module + div,
+select.gk_tab_add_content_access + div,
+select.gk_tab_edit_content_access + div,
+select.gk_tab_edit_published + div,
+select.gk_tab_add_published + div,
+select.gk_tab_edit_animation + div,
+select.gk_tab_add_animation + div{
 	display: none;
 }
-
-.switcher-on,
-.switcher-off {
-	width: 94px;
-	height: 27px;
-	background: transparent url('switcher.png') no-repeat 0 0;
-	cursor: pointer;
-	float: left;
-	margin-top: 3px;
+div#options-TABS_MANAGER .controls {
+	margin-left: 10px !important;
 }
-
-.switcher-off {
-	background-position: -94px 0;
+.control-label {
+	max-width: 140px;
 }
-
-span.unit {
-	line-height: 34px;
-}
-
-/* togglers */
-.pane-sliders .panel {
-	border: none !important;
-}
-
-div.panel > h3 {
-	height: 43px;
-	background: transparent url('interface.png') repeat-x 0 0 !important;
-	border: 1px solid #d8d8d8;
-
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	font: bold 12px/43px Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-}
-
-div.panel > h3 a {
-	color: #333;
-	text-shadow: 0 1px 1px #fff;
-}
-
-div.panel > h3 a:hover,
-div.panel h3.pane-toggler-down a {
-	color: #415e7f;
-}
-
-div.panel h3.pane-toggler-down {
-	border-bottom: 4px solid #415e7f !important;
-}
-
-.pane-toggler span {
-	background: transparent url('j_arrow.png') no-repeat 5px 50% !important;
-}
-
-.pane-toggler-down span {
-	background: transparent url('j_arrow_down.png') no-repeat 5px 50% !important;
-}
-
-.pane-sliders .content {
-	margin: 4px auto;
-	width: 99%;
-
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
-.gkHelpLink {
-	float: right !important;
-	width: 22px;
-	height: 21px;
-	cursor: pointer;
-	margin: 11px 12px 0 10px;
-	background: transparent url('interface.png') repeat-x 0 -70px !important;
-}
-
-a:hover.gkHelpLink {
-	background-position: 0 -47px !important;
-}
-
-/* form elements in the container */
-.panel fieldset.panelform > ul > li > label {
-	color: #444;
-	font-size: 11px;
-	font-weight: bold;
-	height: 24px;
-	line-height: 24px;
-	padding: 0 20px 0 10px;
-	text-align: right;
-	max-width: 30% !important;
-}
-
-.panel fieldset.panelform > ul > li fieldset {
-	line-height: 28px;
-}
-
-fieldset.panelform input {
-	height: 16px;
-	color: #555;
-	line-height: 16px;
-	padding: 4px;
-
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-}
-
-fieldset.panelform input.small {
-	width: 40px;
-}
-
-fieldset.panelform input.tright {
-	text-align: right;
-}
-
-fieldset.panelform input[type=button] {
-	height: 26px;
-	line-height: 26px;
-}
-
-fieldset.panelform select {
-	height: 26px;
-	color: #555;
-	line-height: 24px;
-	padding: 4px;
-	font-size: 11px;
-
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-}
-
-fieldset.panelform select.position {
-	width: 80px !important;
-}
-
-fieldset.panelform textarea {
-	padding: 4px;
-
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-}
-
-fieldset.panelform select[multiple=multiple] {
-	height: 150px;
-}
-
-.fltrt ul.adminformlist li {
-	overflow: hidden;
-	border-bottom: 1px solid #eee;
-	padding: 4px 10px;
-	margin: 0;
-}
-
-fieldset.panelform .label {
-	font-size: 11px;
-	font-weight: bold;
-	width: auto;
-	padding: 0 5px;
-	line-height: 34px;
-}
-
-fieldset.panelform .desc {
-	font-size: 11px;
-	font-weight: normal;
-	width: auto;
-	padding: 10px;
-}
-
 /* tabs manager */
 #tabs_list.dragging .gk_tab_item,
 #tabs_list.dragging .gk_tab_item_desc {
@@ -230,102 +71,19 @@ fieldset.panelform .desc {
 	line-height: 30px;
 }
 
-.gk_tab_edit_submit a,
-.gk_tab_add_submit a,
-.gk_tab_edit_submit a.gk_tab_save,
-.gk_tab_add_submit a.gk_tab_save,
-#gk_tab_add_header a,
-#config_manager_form button {
-	display: inline-block;
-	height: 30px;
-	line-height: 30px;
-	min-width: 60px;
-	padding: 0 8px;
-	border: 1px solid #415E7F;
-
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	
-	background-color: #415e7f;
-	background: -webkit-linear-gradient(#4d6c90, #415E7F);
-	background: -moz-linear-gradient(center top, #4d6c90, #415E7F);
-	background: -o-linear-gradient(#4d6c90, #415E7F);
-	background: -ms-linear-gradient(center top, #4d6c90, #415E7F);
-	background: linear-gradient(center top, #4d6c90, #415E7F);
-	color: #fff !important;
-	font-size: 12px;
-	font-weight: bold;
-	text-align: center;
-}
-
-#config_manager_form button {
-	height: 30px;
-	line-height: 28px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-#config_manager_load, #config_manager_delete {
-	margin-left: 30px;
-}
-
-.gk_tab_edit_submit a,
-.gk_tab_add_submit a,
-#config_manager_form button {
-	border: 1px solid #d8d8d8;
-
-	background: #f1f1f1;
-	background: -webkit-linear-gradient(#fefefe, #f1f1f1);
-	background: -moz-linear-gradient(center top, #fefefe, #f1f1f1);
-	background: -o-linear-gradient(#fefefe, #f1f1f1);
-	background: -ms-linear-gradient(center top, #fefefe, #f1f1f1);
-	background: linear-gradient(center top, #fefefe, #f1f1f1);
-	color: #415E7F !important;
-}
-
-.gk_tab_edit_submit a:hover,
-.gk_tab_add_submit a:hover,
-#config_manager_form button:hover {
-	background: #222;
-	background: -webkit-linear-gradient(#363636, #222);
-	background: -moz-linear-gradient(center top, #363636, #222);
-	background: -o-linear-gradient(#363636, #222);
-	background: -ms-linear-gradient(center top, #363636, #222);
-	background: linear-gradient(center top, #363636, #222);
-	border: 1px solid #222;
-	text-decoration: none;
-	color: #fff !important;
-}
-
-#gk_tab_add_header a:hover,
-a:hover.gk_tab_save {
-	background: #56779c;
-	background: -webkit-linear-gradient(#6386ae, #56779c);
-	background: -moz-linear-gradient(center top, #6386ae, #56779c);
-	background: -o-linear-gradient(#6386ae, #56779c);
-	background: -ms-linear-gradient(center top, #6386ae, #56779c);
-	background: linear-gradient(center top, #6386ae, #56779c);
-	border: 1px solid #4c6b8d;
-	text-decoration: none;
-}
-
 .gk_tab_editor_scroll > div,
 .gk_tab_add {
 	margin: 0;
 	background: #fdfdfd;
-	border: 1px solid #e5e5e5;
-
-	-webkit-border-radius: 0 0 3px 3px;
-	-moz-border-radius: 0 0 3px 3px;
-	border-radius: 0 0 3px 3px;
-	border-top: none;
+	border: none;
+	border-bottom: 1px solid #e5e5e5;
 	overflow: hidden;
 	padding: 24px 12px;
 }
 
 .gk_tab_editor_scroll p,
 .gk_tab_add p {
-	overflow: hidden;
+	overflow: visible;
 	margin: 0 0 5px;
 }
 
@@ -337,7 +95,7 @@ a:hover.gk_tab_save {
 	height: 24px;
 	line-height: 24px;
 	padding: 0 20px 0 0 !important;
-	text-align: right;
+	text-align: left;
 	max-width: 20% !important;
 }
 
@@ -356,19 +114,6 @@ a:hover.gk_tab_save {
 .gk_tab_add_submit {
 	clear: both;
 	padding: 10px;
-}
-
-.gk_tab_edit_submit a,
-.gk_tab_add_submit a {
-	float: none;
-	margin: 0 4px;
-	display: inline-block;
-	color: #fff;
-}
-
-.gk_tab_edit_submit,
-.gk_tab_add_submit {
-	padding-left: 160px;
 }
 
 .gk_tab_editor_scroll,
@@ -457,32 +202,6 @@ a:hover.gk_tab_save {
 	display: none;
 }
 
-#config_manager_form {
-	clear: both;
-	color: #555;
-	margin: 16px 0;
-	border: 3px solid #eee;
-	padding: 10px;
-	overflow: hidden;
-}
-
-#config_manager_form > div {
-	clear: both;
-	overflow: hidden;
-	padding: 2px 0;
-}
-
-#config_manager_form span {
-	float: left;
-	line-height: 36px;
-	margin-right: 10px;
-	margin-left: -3px;
-}
-
-#config_manager_form input[type="text"] {
-	text-align: right;
-}
-
 #config_manager_form > div.gk_ok {
 	text-align: center;
 	font-weight: bold;
@@ -513,39 +232,94 @@ a:hover.gk_tab_save {
 	margin: 11px 0 0 0;
 }
 
-/* Animation of hiding tabs */
-#TABS_MANAGER-options,
-#EXTERNAL_SOURCES-options {
-	margin-bottom: 0;
-	height: 43px;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	filter: alpha(opacity=100);
-	opacity: 1;
-
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-o-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);
-
-	-webkit-transition: opacity 0.3s ease-out, transform 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
-	-moz-transition: opacity 0.3s ease-out, transform 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
-	-o-transition: opacity 0.3s ease-out, transform 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
-	-ms-transition: opacity 0.3s ease-out, transform 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
-	transition: opacity 0.3s ease-out, transform 0.3s ease-out, height 0.3s ease-out, margin-bottom 0.3s ease-out;
+button#config_manager_load,
+button#config_manager_delete {
+	min-width: 85px;
+	position: relative;
+	margin-left: 12px;
+	vertical-align: top;
+}
+button#config_manager_save {
+	min-width: 85px;
+	margin-left: 12px;
+}
+.nav-tabs > li.gkUnvisible {
+	display: none;
+}
+div.invisible {
+	display: none;
+}
+div#jform_params_module_data_source_chzn {
+	display: none;
+}
+select#jform_params_module_data_source,
+select.gk_tab_edit_type,
+select.gk_tab_add_type,
+select.gk_tab_add_content_access,
+select.gk_tab_edit_content_access,
+select.gk_tab_edit_published,
+select.gk_tab_add_published,
+select.gk_tab_edit_animation,
+select.gk_tab_add_animation {
+	display: inline-block!important;
+}
+.gk_tab_edit label,
+.gk_tab_add label {
+	display: inline-block;
+	min-width: 160px;
+}
+.gk_tab_edit textarea,
+.gk_tab_add textarea {
+	display: inline-block;
+}
+div#config_manager_form {
+	padding: 15px;
+	border: 1px solid #eee;
+	border-radius: 10px;
+	background: #fafafa;
+}
+div#config_manager_form label {
+	display: inline-block;
+	min-width: 160px;
+	margin: 0;
+}
+div#config_manager_form > div {
+	margin: 6px 0;	
+}
+#config_manager_form {
+	word-wrap: break-word !important;
+}
+div#config_manager_form > div:last-child {
+	margin: 10px 0 7px;	
+}
+div#config_manager_form button i {
+	margin-right:5px;
+}
+div#config_manager_form span.label-warning {
+	margin-right: 64px;
+}
+div.gk_tab_edit_submit,
+div.gk_tab_add_submit {
+	padding: 15px;
+	margin-left: 165px;
+}
+div.gk_tab_edit_submit .btn,
+div.gk_tab_add_submit .btn {
+	margin-right: 10px;
 }
 
-#TABS_MANAGER-options.gkUnvisible,
-#EXTERNAL_SOURCES-options.gkUnvisible {
-	margin-bottom: -9px;
-	height: 0;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
-	opacity: 0;
 
-	-webkit-transform: scale(0);
-	-moz-transform: scale(0);
-	-o-transform: scale(0);
-	-ms-transform: scale(0);
-	transform: scale(0);
+/* Support for mobile */
+@media (max-width: 480px) {
+	.form-horizontal .controls { clear: both!important; }
+	.form-horizontal .control-label { width: 100%!important; }
+	div#config_manager_form span.label {
+		clear: both;
+		display: block;
+		margin: 0;
+	}
+	.chzn-container, .chzn-drop {
+		width: auto !important;
+	}
+
 }

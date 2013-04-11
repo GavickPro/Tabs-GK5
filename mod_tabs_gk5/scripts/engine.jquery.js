@@ -17,9 +17,7 @@ jQuery(window).load(function(){
 		var blank = false;
 		var falsy_click = false;
 		var animation_type = config['animation_type'];
-		var direction = (config['rtl'] == 0) ? 'left' : 'right';
 		//
-		
 		tabs_wrapper.css('height', jQuery(tabs[config['active_tab']-1]).outerHeight() + "px");
 		jQuery(tabs).css('opacity', 0);
 		jQuery(tabs[config['active_tab']-1]).css({
@@ -27,8 +25,6 @@ jQuery(window).load(function(){
 			'position': 'relative',
 			'z-index': 2
 		});
-		
-		
 		// set the fixed height
 		if(config['auto_height'] == '0') {
 			tabs_wrapper.css('height', config['module_height'] + 'px');
@@ -53,13 +49,13 @@ jQuery(window).load(function(){
 					var current_tab_animation = { 'opacity': 1 };
 					//
 					if(previous_animation == 'slide_horizontal') {
-						previous_tab_animation[direction] = -1 * jQuery(tabs[previous_tab]).outerWidth();
+						previous_tab_animation['left'] = -1 * jQuery(tabs[previous_tab]).outerWidth();
 					} else if(previous_animation == 'slide_vertical') {
 						previous_tab_animation['top'] = -1 * jQuery(tabs[previous_tab]).outerHeight();
 					} 
 					//
 					if(current_animation == 'slide_horizontal') {
-						current_tab_animation[direction] = 0;
+						current_tab_animation['left'] = 0;
 					} else if(current_animation == 'slide_vertical') {
 						current_tab_animation['top'] = 0;
 					}
@@ -94,7 +90,7 @@ jQuery(window).load(function(){
 					setTimeout(function(){
 						//
 						if(current_animation == 'slide_horizontal') {
-							jQuery(tabs[current_tab]).css(direction, jQuery(tabs[current_tab]).outerWidth());
+							jQuery(tabs[current_tab]).css('left', jQuery(tabs[current_tab]).outerWidth());
 						} else if(current_animation == 'slide_vertical') {
 							jQuery(tabs[current_tab]).css('top', jQuery(tabs[current_tab]).outerHeight());
 						}

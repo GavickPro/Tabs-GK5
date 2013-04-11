@@ -12,6 +12,9 @@
 
 // no direct access
 defined('_JEXEC') or die;
+if(!defined('DS')){
+   define('DS',DIRECTORY_SEPARATOR);
+}
 
 // helper loading
 require_once (dirname(__FILE__).DS.'helper.php');

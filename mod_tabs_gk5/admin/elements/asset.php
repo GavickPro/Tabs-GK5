@@ -12,6 +12,8 @@
 
 defined('JPATH_BASE') or die;
 
+
+
 jimport('joomla.form.formfield');
 
 class JFormFieldAsset extends JFormField {

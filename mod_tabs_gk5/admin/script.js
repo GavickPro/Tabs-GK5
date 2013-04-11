@@ -94,20 +94,21 @@ var TabsGK5Settings = new Class({
 		var sourceMode = document.id('jform_params_module_data_source').get('value');
 		// add unvisible class
 		if(sourceMode == 'external') {
-			document.id('TABS_MANAGER-options').addClass('gkUnvisible');
+			document.id('module-form').getElements('a[href^=#options-TABS_MANAGER]').getParent().addClass('gkUnvisible');
 		} else {
-			document.id('EXTERNAL_SOURCES-options').addClass('gkUnvisible');
+			document.id('module-form').getElements('a[href^=#options-EXTERNAL_SOURCES]').getParent().addClass('gkUnvisible');
 		} 
 		// hide one of unnecessary tabs
+		document.id('jform_params_tabs_data-lbl').getParent().setStyle('display', 'none');
 		document.id('jform_params_module_data_source').addEvent('change', function() {
 			if(sourceMode != document.id('jform_params_module_data_source').get('value')) {
 				sourceMode = document.id('jform_params_module_data_source').get('value');
 				if(sourceMode == 'external') {
-					document.id('TABS_MANAGER-options').addClass('gkUnvisible');
-					document.id('EXTERNAL_SOURCES-options').removeClass('gkUnvisible');
+					document.id('module-form').getElements('a[href^=#options-TABS_MANAGER]').getParent().addClass('gkUnvisible');
+					document.id('module-form').getElements('a[href^=#options-EXTERNAL_SOURCES]').getParent().removeClass('gkUnvisible');
 				} else {
-					document.id('TABS_MANAGER-options').removeClass('gkUnvisible');
-					document.id('EXTERNAL_SOURCES-options').addClass('gkUnvisible');
+					document.id('module-form').getElements('a[href^=#options-TABS_MANAGER]').getParent().removeClass('gkUnvisible');
+					document.id('module-form').getElements('a[href^=#options-EXTERNAL_SOURCES]').getParent().addClass('gkUnvisible');
 				} 
 			}
 		});
@@ -125,18 +126,18 @@ var TabsGK5Settings = new Class({
 		// set the add form
 		if(add_form.getElement('.gk_tab_add_type').get('value') == 'module') {
 			add_form.getElement('.gk_tab_add_content_xhtml').setStyle('display', 'none');
-			add_form.getElement('.gk_tab_add_content_module').setStyle('display', 'block');
+			add_form.getElement('.gk_tab_add_content_module').setStyle('display', 'inline-block');
 		} else {
-			add_form.getElement('.gk_tab_add_content_xhtml').setStyle('display', 'block');
+			add_form.getElement('.gk_tab_add_content_xhtml').setStyle('display', 'inline-block');
 			add_form.getElement('.gk_tab_add_content_module').setStyle('display', 'none');
 		}
 		// add tab form events
 		add_form.getElement('.gk_tab_add_type').addEvent('change', function(){
 			if(add_form.getElement('.gk_tab_add_type').value == 'module') {
 				add_form.getElement('.gk_tab_add_content_xhtml').setStyle('display', 'none');
-				add_form.getElement('.gk_tab_add_content_module').setStyle('display', 'block');
+				add_form.getElement('.gk_tab_add_content_module').setStyle('display', 'inline-block');
 			} else {
-				add_form.getElement('.gk_tab_add_content_xhtml').setStyle('display', 'block');
+				add_form.getElement('.gk_tab_add_content_xhtml').setStyle('display', 'inline-block');
 				add_form.getElement('.gk_tab_add_content_module').setStyle('display', 'none');
 			}
 		});
@@ -301,13 +302,13 @@ var TabsGK5Settings = new Class({
 		});
 		// set the content of the form
 		var itemMode = item.getElement('.gk_tab_edit_type').get('value');
-		item.getElement('.gk_tab_edit_content_xhtml').setStyle('display', itemMode == 'module' ? 'none' : 'block');
-		item.getElement('.gk_tab_edit_content_module').setStyle('display', itemMode == 'module' ? 'block' : 'none');
+		item.getElement('.gk_tab_edit_content_xhtml').setStyle('display', itemMode == 'module' ? 'none' : 'inline-block');
+		item.getElement('.gk_tab_edit_content_module').setStyle('display', itemMode == 'module' ? 'inline-block' : 'none');
 		// change event
 		item.getElement('.gk_tab_edit_type').addEvent('change', function(){
 			var itemMode = item.getElement('.gk_tab_edit_type').get('value');
-			item.getElement('.gk_tab_edit_content_xhtml').setStyle('display', itemMode == 'module' ? 'none' : 'block');
-			item.getElement('.gk_tab_edit_content_module').setStyle('display', itemMode == 'module' ? 'block' : 'none');
+			item.getElement('.gk_tab_edit_content_xhtml').setStyle('display', itemMode == 'module' ? 'none' : 'inline-block');
+			item.getElement('.gk_tab_edit_content_module').setStyle('display', itemMode == 'module' ? 'inline-block' : 'none');
 		});
 		// remove
 		item.getElements('.gk_tab_item_remove').addEvent('click', function(e){
@@ -392,91 +393,27 @@ var TabsGK5Settings = new Class({
 	},
 	// function used to make other adjustments in the form
 	formInit: function() {
-		// fix the width of the options when the browser window is too small
-		document.id('module-sliders').getParent().setStyle('position','relative');
-		//
-		var baseW = document.id('module-sliders').getSize().x;
-		var minW = 540;
-		//
-		if(baseW < minW) {
-			document.id('module-sliders').setStyles({
-				"position": "absolute",
-				"background": "white",
-				"width": baseW + "px",
-				"padding": "8px",
-				"-webkit-box-shadow": "-8px 0 15px #aaa",
-				"-moz-box-shadow": "-8px 0 15px #aaa",
-				"box-shadow": "-8px 0 15px #aaa"
-			});
-	
-			var WidthFX = new Fx.Morph(document.id('module-sliders'), {duration: 150});
-			var mouseOver = false;
-	
-			document.id('module-sliders').addEvent('mouseenter', function() {
-				mouseOver = true;
-				WidthFX.start({
-					'width': minW,
-					'margin-left': (-1 * (minW - baseW))
-				});
-			});
-	
-			document.id('module-sliders').addEvent('mouseleave', function() {
-				mouseOver = false;
-				(function() {
-					if(!mouseOver) {
-						WidthFX.start({
-							'width': baseW,
-							'margin-left': 0
-						});
-					}
-				}).delay(750);
-			});
-		}
-		$$('.panel h3.title').each(function(panel) {
-			panel.addEvent('click', function(){
-				if(panel.hasClass('pane-toggler')) {
-					(function(){ 
-						panel.getParent().getElement('.pane-slider').setStyle('height', 'auto'); 
-					}).delay(750);
-				
-					(function() {
-						var myFx = new Fx.Scroll(window, { duration: 150 }).toElement(panel);
-					}).delay(250);
-				}	
-			});
-		});
+		
+		document.id('config_manager_form').getParent().setStyle('margin', '0');
 		// adjust the inputs
-		$$('.input-pixels').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">px</span>"});
-		$$('.input-percents').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">%</span>"});
-		$$('.input-minutes').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">minutes</span>"});
-		$$('.input-ms').each(function(el){el.getParent().innerHTML = el.getParent().innerHTML + "<span class=\"unit\">ms</span>"});
-		// switchers
-		$$('.gk_switch').each(function(el){
-			el.setStyle('display','none');
-			var style = (el.value == 1) ? 'on' : 'off';
-			var switcher = new Element('div',{'class' : 'switcher-'+style});
-			switcher.inject(el, 'after');
-			switcher.addEvent("click", function(){
-				if(el.value == 1){
-					switcher.setProperty('class','switcher-off');
-					el.value = 0;
-				}else{
-					switcher.setProperty('class','switcher-on');
-					el.value = 1;
-				}
-			});
-		});
-		// creating the demo link
-		new Element('a', { 
-			'href' : 'http://mootools.net/demos/?demo=Transitions', 
-			'target' : '_blank', 
-			'id' : 'gkDemoLink', 
-			'html' : 'Demo'  
-		}).inject(document.id('jform_params_animation_function'), 'after');
+		$$('.input-pixels').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">px</span></div>"});
+		$$('.input-ms').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">ms</span></div>"});
+		$$('.input-percents').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">%</span></div>"});
+		$$('.input-minutes').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">minutes</span></div>"});
+			
+				// creating the demo link
+//		new Element('a', { 
+//			'href' : 'http://mootools.net/demos/?demo=Transitions', 
+//			'target' : '_blank', 
+//			'id' : 'gkDemoLink', 
+//			'html' : 'Demo'  
+//		}).inject(document.id('jform_params_animation_function'), 'after');
 		// creating the help link
-		var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://www.gavick.com/best-free-joomla-tab-module.html', 'target' : '_blank' })
-		link.inject($$('div.panel')[$$('div.panel').length-1].getElement('h3'), 'bottom');
-		link.addEvent('click', function(e) { e.stopPropagation(); });
+//		var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://www.gavick.com/best-free-joomla-tab-module.html', 'target' : '_blank' })
+//		link.inject($$('div.panel')[$$('div.panel').length-1].getElement('h3'), 'bottom');
+//		link.addEvent('click', function(e) { e.stopPropagation(); });
+		// removing unnecessary borders
+//		document.id('TABS_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
 	},
 	// function to encode chars
 	htmlspecialchars: function(string) {

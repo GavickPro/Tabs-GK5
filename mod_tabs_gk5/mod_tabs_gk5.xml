@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="1.6.0" client="site" method="upgrade">
+<extension type="module" version="3.0" client="site" method="upgrade">
 	<name>Tabs GK5</name>
 	<author>GavickPro</author>
 	<creationDate>11/04/2013</creationDate>
@@ -34,7 +34,7 @@
 	</files>
 	
 	<updateservers>
-		<server type="extension" priority="1" name="Tabs GK5 Updates">https://www.gavick.com/update_server/joomla25/tabs_gk5.xml</server>
+		<server type="extension" priority="1" name="Tabs GK5 Updates">https://www.gavick.com/update_server/joomla30/tabs_gk5.xml</server>
 	</updateservers>
 	
 	<languages>
@@ -49,7 +49,7 @@
 				
 				<field name="config_manager" type="configmanager" directory="modules/mod_tabs_gk5/config/" />
 				
-				<field name="automatic_module_id" type="list" class="gk_switch" default="1" label="MOD_TABS_AUTOMATIC_MODULE_ID" description="MOD_TABS_AUTOMATIC_MODULE_ID_DESC">
+				<field name="automatic_module_id" type="radio" class="btn-group" default="1" label="MOD_TABS_AUTOMATIC_MODULE_ID" description="MOD_TABS_AUTOMATIC_MODULE_ID_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
@@ -82,28 +82,28 @@
 				        <option value="style6">MOD_TABS_STYLE6</option>
 				</field>
 				
-				<field name="module_auto_height" type="list" class="gk_switch" default="1" label="MOD_TABS_MODULE_AUTO_HEIGHT" description="MOD_TABS_MODULE_AUTO_HEIGHT_DESC">
+				<field name="module_auto_height" type="radio" class="btn-group" default="1" label="MOD_TABS_MODULE_AUTO_HEIGHT" description="MOD_TABS_MODULE_AUTO_HEIGHT_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 				
-				<field name="module_height" type="text" size="3" class="input-pixels text_area" default="200" label="MOD_TABS_MODULE_HEIGHT" description="MOD_TABS_MODULE_HEIGHT_DESC" />
+				<field name="module_height" type="text" size="1" class="input-pixels text_area" default="200" label="MOD_TABS_MODULE_HEIGHT" description="MOD_TABS_MODULE_HEIGHT_DESC" />
 				
-				<field name="tabs_position" type="list" default="top" label="MOD_TABS_TABS_POSITION" description="MOD_TABS_TABS_POSITION_DESC">
+				<field name="tabs_position" type="radio" class="btn-group" default="top" label="MOD_TABS_TABS_POSITION" description="MOD_TABS_TABS_POSITION_DESC">
 				        <option value="top">MOD_TABS_TOP</option>
 				        <option value="bottom">MOD_TABS_BOTTOM</option>
 				        <option value="left">MOD_TABS_LEFT</option>
 				        <option value="right">MOD_TABS_RIGHT</option>
 				</field>
 				
-				<field name="tabs_width" type="text" size="3" class="input-pixels text_area" default="200" label="MOD_TABS_TABS_WIDTH" description="MOD_TABS_TABS_WIDTH_DESC" />
+				<field name="tabs_width" type="text" size="1" class="input-pixels text_area" default="200" label="MOD_TABS_TABS_WIDTH" description="MOD_TABS_TABS_WIDTH_DESC" />
 				
-				<field name="tabs_spans" type="list" class="gk_switch" default="0" label="MOD_TABS_SPANS" description="MOD_TABS_SPANS_DESC">
+				<field name="tabs_spans" type="radio" class="btn-group" default="0" label="MOD_TABS_SPANS" description="MOD_TABS_SPANS_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 				
-				<field name="buttons" type="list" class="gk_switch" default="1" label="MOD_TABS_BUTTONS" description="MOD_TABS_BUTTONS_DESC">
+				<field name="buttons" type="radio" class="btn-group" default="1" label="MOD_TABS_BUTTONS" description="MOD_TABS_BUTTONS_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
@@ -115,7 +115,7 @@
 				        <option value="mouseenter">MOD_TABS_MOUSEOVER</option>
 				</field>
 				
-				<field name="animation" type="list" default="1" class="gk_switch" label="MOD_TABS_AUTO_ANIMATION" description="MOD_TABS_AUTO_ANIMATION_DESC">
+				<field name="animation" default="1" type="radio" class="btn-group" label="MOD_TABS_AUTO_ANIMATION" description="MOD_TABS_AUTO_ANIMATION_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
@@ -124,7 +124,7 @@
 				
 				<field name="animation_interval" type="text" class="input-ms" size="5" default="5000" label="MOD_TABS_ANIMATION_INTERVAL" description="MOD_TABS_ANIMATION_INTERVAL_DESC" />
 				
-				<field name="animation_type" type="list" default="opacity" label="MOD_TABS_ANIMATION_TYPE" description="MOD_TABS_ANIMATION_TYPE_DESC">
+				<field name="animation_type" type="radio" class="btn-group" default="opacity" label="MOD_TABS_ANIMATION_TYPE" description="MOD_TABS_ANIMATION_TYPE_DESC">
 				        <option value="opacity">MOD_TABS_OPACITY</option>
 				        <option value="slide_vertical">MOD_TABS_SLIDE_VERTICAL</option>
 				        <option value="slide_horizontal">MOD_TABS_SLIDE_HORIZONTAL</option>
@@ -169,17 +169,17 @@
 			</fieldset>
 			<!-- advanced -->
 			<fieldset name="TABS_ADVANCED">
-				<field name="url_tab_selection" type="list" class="gk_switch" default="1" label="MOD_TABS_URL_TAB_SELECTION" description="MOD_TABS_URL_TAB_SELECTION_DESC">
+				<field name="url_tab_selection" type="radio" class="btn-group" default="1" label="MOD_TABS_URL_TAB_SELECTION" description="MOD_TABS_URL_TAB_SELECTION_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 				
-				<field name="cookie_tab_selection" type="list" class="gk_switch" default="0" label="MOD_TABS_COOKIE_TAB_SELECTION" description="MOD_TABS_COOKIE_TAB_SELECTION_DESC">
+				<field name="cookie_tab_selection" type="radio" class="btn-group" default="0" label="MOD_TABS_COOKIE_TAB_SELECTION" description="MOD_TABS_COOKIE_TAB_SELECTION_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 				
-				<field name="parse_plugins" type="list" class="gk_switch" default="1" label="MOD_TABS_PARSE_PLUGINS" description="MOD_TABS_PARSE_PLUGINS_DESC">
+				<field name="parse_plugins" type="radio" class="btn-group" default="1" label="MOD_TABS_PARSE_PLUGINS" description="MOD_TABS_PARSE_PLUGINS_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
@@ -195,24 +195,20 @@
 				        <option value="2">MOD_TABS_AUTOMATIC</option>
 				</field>
 				
-				<field name="engine_mode" type="list" default="mootools" label="MOD_TABS_ENGINE_MODE" description="MOD_TABS_ENGINE_MODE_DESC">
+				<field name="engine_mode" type="radio" class="btn-group" default="mootools" label="MOD_TABS_ENGINE_MODE" description="MOD_TABS_ENGINE_MODE_DESC">
 						<option value="mootools">MOD_TABS_MODE_MOOTOOLS</option>
 						<option value="jquery">MOD_TABS_MODE_JQUERY</option>
 				</field> 
 				
-				<field name="include_jquery" type="list" class="gk_switch" default="0" label="MOD_TABS_INCLUDE_JQUERY" description="MOD_TABS_INCLUDE_JQUERY_DESC">
-				        <option value="0">MOD_TABS_DISABLED</option>
-				        <option value="1">MOD_TABS_ENABLED</option>
-				</field>
-				<field name="rtl" type="list" class="gk_switch" default="0" label="MOD_TABS_RTL_SUPPORT" description="MOD_TABS_RTL_SUPPORT_DESC">
+				<field name="include_jquery" type="radio" class="btn-group" default="0" label="MOD_TABS_INCLUDE_JQUERY" description="MOD_TABS_INCLUDE_JQUERY_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 			</fieldset>
 			<!-- about us -->
-			<fieldset name="TABS_ABOUT_US" addfieldpath="/modules/mod_tabs_gk5/admin/elements">
+			<!-- <fieldset name="TABS_ABOUT_US" addfieldpath="/modules/mod_tabs_gk5/admin/elements">
 			    <field type="about" name="about_us" /> 
-			</fieldset>
+			</fieldset> -->
 		</fields>
 	</config>
 </extension>

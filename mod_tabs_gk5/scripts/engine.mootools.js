@@ -27,9 +27,6 @@ window.addEvent('load', function(){
 		var falsy_click = false;
 		var animation_type = config['animation_type'];
 		var tab_animation = [];
-		var direction = (config['rtl'] == 0) ? 'left' : 'right';
-		
-		
 		// prepare tabs animation
 		tabs.each(function(tab, i){ 
 			tab_animation[i] = new Fx.Morph(tab, {duration: config['animation_speed'], wait: 'ignore'});
@@ -65,13 +62,13 @@ window.addEvent('load', function(){
 					var current_tab_animation = { 'opacity': 1 };
 					//
 					if(previous_animation == 'slide_horizontal') {
-						previous_tab_animation[direction] = -1 * tabs[previous_tab].getSize().x;
+						previous_tab_animation['left'] = -1 * tabs[previous_tab].getSize().x;
 					} else if(previous_animation == 'slide_vertical') {
 						previous_tab_animation['top'] = -1 * tabs[previous_tab].getSize().y;
 					} 
 					//
 					if(current_animation == 'slide_horizontal') {
-						current_tab_animation[direction] = 0;
+						current_tab_animation['left'] = 0;
 					} else if(current_animation == 'slide_vertical') {
 						current_tab_animation['top'] = 0;
 					}
@@ -96,7 +93,7 @@ window.addEvent('load', function(){
 					(function(){
 						//
 						if(current_animation == 'slide_horizontal') {
-							tabs[current_tab].setStyle(direction, tabs[current_tab].getSize().x);
+							tabs[current_tab].setStyle('left', tabs[current_tab].getSize().x);
 						} else if(current_animation == 'slide_vertical') {
 							tabs[current_tab].setStyle('top', tabs[current_tab].getSize().y);
 						}

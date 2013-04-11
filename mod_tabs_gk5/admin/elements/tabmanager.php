@@ -18,7 +18,7 @@ class JFormFieldTabmanager extends JFormField {
 	protected $type = 'Tabmanager';
 
 	protected function getInput() {
-		$add_form = '<div id="gk_tab_manager"><div id="gk_tab_add_header"><a href="#add">'.JText::_('MOD_TABS_GK5_FORM_ITEM_ADD').'</a><span>'.JText::_('MOD_TABS_GK5_FORM_ITEM_ADD_TIP').'</span></div><div id="gk_tab_add_form">'.$this->getForm('add').'</div></div>';
+		$add_form = '<div id="gk_tab_manager"><div id="gk_tab_add_header"><a class="btn btn-primary" href="#add">'.JText::_('MOD_TABS_GK5_FORM_ITEM_ADD').'</a><span>'.JText::_('MOD_TABS_GK5_FORM_ITEM_ADD_TIP').'</span></div><div id="gk_tab_add_form">'.$this->getForm('add').'</div></div>';
 		
 		$edit_form = $this->getForm('edit');
 		
@@ -93,9 +93,9 @@ class JFormFieldTabmanager extends JFormField {
 		// close the selectbox
 		$form_animation_select .= '</select></p>';
 		// form buttons
-		$form_buttons = '<div class="gk_tab_'.$type.'_submit"><a href="#save" class="gk_tab_save">'.JText::_('MOD_TABS_GK5_FORM_SAVE').'</a><a href="#cancel">'.JText::_('MOD_TABS_GK5_FORM_CANCEL').'</a></div>';
+		$form_buttons = '<div class="gk_tab_'.$type.'_submit"><a href="#save" class="btn btn-success gk_tab_save"> '.JText::_('MOD_TABS_GK5_FORM_SAVE').'</a><a href="#cancel" class="btn">'.JText::_('MOD_TABS_GK5_FORM_CANCEL').'</a></div>';
 		// final form
-		$form = '<div class="height_scroll"><div class="gk_tab_'.$type.'">'.$form_name.$form_type.$form_access_level.$form_published.$form_content.$form_id.$form_animation_select.$form_buttons.'</div></div>';
+		$form = '<div class="height_scroll"><div class="gk_tab_'.$type.'">'.$form_name.$form_type.$form_access_level.$form_published.$form_animation_select.$form_content.$form_id.$form_buttons.'</div></div>';
 		// output
 		return $form;
 	}
