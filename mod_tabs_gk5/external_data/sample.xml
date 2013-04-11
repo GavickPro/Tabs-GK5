@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+	<tab>
+		<name>Test 1</name>
+		<type>xhtml</type>
+		<content><![CDATA[:)]]></content>
+		<published>1</published>
+		<access>1</access>
+		<id></id>
+		<animation>default</animation>
+	</tab>
+	<tab>
+		<name>Test 2</name>
+		<type>module</type>
+		<content>tab1</content>
+		<published>1</published>
+		<access>1</access>
+		<id></id>
+		<animation>default</animation>
+	</tab>
+</tabs>

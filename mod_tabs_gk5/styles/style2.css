@@ -1,0 +1,212 @@
+/**
+* Tabs GK5 - style 2
+* @package Joomla!
+* @Copyright (C) 2007-2012 Gavick.com
+* @ All rights reserved
+* @ Joomla! is Free Software
+* @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
+* @version $Revision: GK5 1.0 $
+**/
+
+/*
+ *
+ ==================  Edit Tabs  ================= */
+                   
+.gkTabsWrap.vertical {
+	border: 1px solid #e5e5e5
+}
+.gkTabsWrap.vertical ol,
+.gkTabsWrap.horizontal > ol {
+	background: -moz-linear-gradient(top, #fbfbfb 0%, #f8f8f8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fbfbfb), color-stop(100%, #f8f8f8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fbfbfb 0%, #f8f8f8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fbfbfb 0%, #f8f8f8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fbfbfb 0%, #f8f8f8 100%); /* IE10+ */
+	background: linear-gradient(top, #fbfbfb 0%, #f8f8f8 100%); /* W3C */
+	border-bottom: 1px solid #eee;
+}
+.gkTabsWrap.vertical ol li,
+.gkTabsWrap.horizontal ol li {
+	border-right: 1px solid #eee;
+	color: #999;
+	text-shadow: 1px 1px 0 #fff;
+}
+.gkTabsWrap.vertical ol li.active,
+.gkTabsWrap.horizontal ol li.active {
+	background: #fff;
+	color: #5078bb;
+}
+.gkTabsWrap.vertical ol li:hover,
+.gkTabsWrap.horizontal ol li:hover {
+	background: #fff;
+	color: #777
+} 
+.gkTabsWrap.vertical .gkTabsContainer + ol {
+	border-top: 1px solid #e5e5e5;
+}
+.gkTabsItem {
+	background: #fff;
+}
+.gkTabsButtonNext,
+.gkTabsButtonPrev {
+	background: #ddd;
+}
+.gkTabsButtonNext:hover,
+.gkTabsButtonPrev:hover {
+	background: #eee;
+}
+.gkTabsWrap.horizontal {
+	border: 1px solid #e5e5e5;
+}
+.gkTabsWrap.horizontal > ol {
+	border-right: 1px solid #eee!important;
+}
+.gkTabsWrap.horizontal ol li {
+	border-bottom: 1px solid #eee!important;
+}
+.gkTabsWrap.horizontal .gkTabsContainer + ol {
+	border-left: 1px solid #eee!important;
+}
+
+/* ==================  End  ===================== */
+ 
+ 
+ 
+/* 
+ * VERTICAL mode 
+ */
+
+.gkTabsGK5 {
+	position: relative;
+	overflow: hidden;
+}
+.gkTabsWrap {
+	margin: 0;
+}
+/* tabs */
+
+.gkTabsWrap.vertical ol,
+.gkTabsWrap.horizontal > ol {
+	height: 40px;
+	margin: 0!important;
+	padding: 0!important;
+}
+.gkTabsWrap.vertical ol li,
+.gkTabsWrap.horizontal ol li {
+	font-size: 13px;
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
+	line-height: 40px!important;
+	list-style-type: none;
+	margin: 0!important;
+	padding: 0 18px!important;
+	position: relative;
+}
+.gkTabsWrap.vertical ol li.active,
+.gkTabsWrap.horizontal ol li.active {
+	height: 41px;
+}
+.gkTabsWrap.vertical .gkTabsContainer + ol {
+	border-bottom: none;
+}
+.gkTabsWrap.vertical .gkTabsContainer + ol li.active {
+	position: relative;
+	top: -1px;
+	line-height: 42px !important;
+}
+/* containers */
+.gkTabsContainer {
+	clear: both;
+	overflow: hidden;
+	position: relative;
+}
+.gkTabsItem {
+	left: -9999px;
+	padding: 20px 25px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.gkTabsItem.active {
+	left: 0;
+	position: relative;
+	z-index: 2;
+}
+/* buttons prev/next */
+.gkTabsButtonNext,
+.gkTabsButtonPrev {
+	border-radius: 50%;
+	cursor: pointer;
+	height: 18px;
+	position: absolute;
+	right: 0;
+	font: 0/0px a;
+	top: 43%;
+	width: 18px;
+	z-index: 3;
+}
+.gkTabsButtonPrev {
+	left: 0;
+	right: inherit;
+}
+.gkTabsButtonNext:before,
+.gkTabsButtonPrev:before {
+	content: "›";
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: 18px;
+	line-height: 17px;
+	text-align: center;
+	width: 18px;
+}
+.gkTabsButtonPrev:before {
+	content: "‹";
+}
+/* 
+ * HORIZONTAL mode 
+ */
+ 
+.gkTabsWrap.horizontal {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: table;
+	width: 100%;
+}
+.gkTabsWrap.horizontal > ol,
+.gkTabsWrap.horizontal > .gkTabsContainer {
+	display: table-cell;
+	vertical-align: top;
+}
+.gkTabsWrap.horizontal > ol {
+	position: relative;
+	z-index: 5;
+	padding: 0 18px!important;
+	border: none;
+}
+/* tabs */
+
+.gkTabsWrap.horizontal ol li {
+	width: 100%;
+	border: none;
+	margin: 0 -18px !important;
+	padding: 2px 18px !important;
+}
+.gkTabsWrap.horizontal ol li.active {
+	padding-right: 19px !important;
+	height: 40px
+}
+.gkTabsWrap.horizontal .gkTabsContainer + ol {
+	border: none;
+}
+.gkTabsWrap.horizontal .gkTabsContainer + ol li.active {
+	position: relative;
+	left: -1px;
+	padding: 2px 18px 2px 19px !important;
+}

@@ -1,0 +1,20 @@
+[
+	{
+		"name": "Test 1",
+		"type": "xhtml",
+		"content": ":)",
+		"published": "1",
+		"access": "1",
+		"id": "",
+		"animation": "default"
+	},
+	{
+		"name": "Test2",
+		"type": "module",
+		"content": "tab1",
+		"published": "1",
+		"access": "1",
+		"id": "",
+		"animation": "default"
+	}
+]
