@@ -49,7 +49,14 @@ defined('_JEXEC') or die('Restricted access');
 		<?php endif; ?>
 	</div>
 		
-	<?php if($this->config['buttons'] == 1 && ($this->config['tabs_position'] == 'top' || $this->config['tabs_position'] == 'bottom')) : ?>
+	<?php if(
+		$this->config['buttons'] == 1 && 
+		(
+			$this->config['tabs_position'] == 'top' || 
+			$this->config['tabs_position'] == 'bottom' ||
+			$this->config['tabs_position'] == 'disabled'
+		)
+	) : ?>
 	<div class="gkTabsButtonNext">next</div>
 	<div class="gkTabsButtonPrev">prev</div>
 	<?php endif; ?>

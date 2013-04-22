@@ -2,7 +2,7 @@
 <extension type="module" version="1.6.0" client="site" method="upgrade">
 	<name>Tabs GK5</name>
 	<author>GavickPro</author>
-	<creationDate>11/04/2013</creationDate>
+	<creationDate>26/03/2013</creationDate>
 	<copyright>Copyright (C) 2011-2013 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
@@ -94,6 +94,7 @@
 				        <option value="bottom">MOD_TABS_BOTTOM</option>
 				        <option value="left">MOD_TABS_LEFT</option>
 				        <option value="right">MOD_TABS_RIGHT</option>
+				        <option value="disabled">MOD_TABS_DISABLED</option>
 				</field>
 				
 				<field name="tabs_width" type="text" size="3" class="input-pixels text_area" default="200" label="MOD_TABS_TABS_WIDTH" description="MOD_TABS_TABS_WIDTH_DESC" />
