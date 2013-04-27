@@ -18,7 +18,7 @@ jQuery(window).load(function(){
 		var animation_type = config['animation_type'];
 		var direction = (config['rtl'] == 0) ? 'left' : 'right';
 		//
-		tabs_wrapper.css('height', jQuery(tabs[config['active_tab']-1]).outerHeight() + "px");
+		tabs_wrapper.css('height', 'auto');
 		jQuery(tabs).css('opacity', 0);
 		jQuery(tabs[config['active_tab']-1]).css({
 			'opacity': '1',

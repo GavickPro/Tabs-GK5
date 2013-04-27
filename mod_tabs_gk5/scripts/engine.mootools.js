@@ -33,7 +33,7 @@ window.addEvent('load', function(){
 			tab_animation[i] = new Fx.Morph(tab, {duration: config['animation_speed'], wait: 'ignore'});
 		});
 			
-		tabs_wrapper.setStyle('height', tabs[config['active_tab']-1].getSize().y + "px");
+		tabs_wrapper.setStyle('height', 'auto');
 		tabs.setStyle('opacity', 0);
 		tabs[config['active_tab']-1].setStyles({
 			'opacity': '1',
