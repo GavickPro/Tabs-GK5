@@ -48,7 +48,7 @@ class TabsGK5Helper {
             }
         }
 		// set the active tab
-		$this->active_tab = 1;
+		$this->active_tab = $this->config['initial_tab'];
 		// initializing the tabs array
 		$this->tabs = array(
 								"content" => array(),

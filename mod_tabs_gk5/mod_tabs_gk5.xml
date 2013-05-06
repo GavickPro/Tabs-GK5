@@ -170,6 +170,8 @@
 			</fieldset>
 			<!-- advanced -->
 			<fieldset name="TABS_ADVANCED">
+				<field name="initial_tab" type="text" size="5" default="1" label="MOD_TABS_INITIAL_TAB" description="MOD_TABS_INITIAL_TAB_DESC" />
+				
 				<field name="url_tab_selection" type="list" class="gk_switch" default="1" label="MOD_TABS_URL_TAB_SELECTION" description="MOD_TABS_URL_TAB_SELECTION_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
