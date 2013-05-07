@@ -223,7 +223,7 @@ var TabsGK5Settings = new Class({
 					tempTabs[i] = $this.options.tabs[item];
 				});
 				// save new tabs order
-				this.options.tabs = tempTabs;
+				$this.options.tabs = tempTabs;
 				// put the data to textarea field
 				document.id('jform_params_tabs_data').innerHTML = JSON.encode($this.options.tabs);
 				// to avoid problems with opening tab editor
