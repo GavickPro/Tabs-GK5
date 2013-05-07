@@ -18,7 +18,7 @@ jQuery(window).load(function(){
 		var animation_type = config['animation_type'];
 		var direction = (config['rtl'] == 0) ? 'left' : 'right';
 		//
-		tabs_wrapper.css('height', 'auto');
+		tabs_wrapper.css('height', jQuery(tabs[config['active_tab']-1]).outerHeight() + "px");
 		jQuery(tabs).css('opacity', 0);
 		jQuery(tabs[config['active_tab']-1]).css({
 			'opacity': '1',
@@ -50,9 +50,9 @@ jQuery(window).load(function(){
 			
 			jQuery(el.find('.gkTabsButtonPrev')[0]).click(function() {
 				if(config['current_tab'] > 0) {
-					tabsGK5Animation(config['current_tab'] - 1, tabs_wrapper, tab_animation, tabs, items, config);
+					tabsGK5Animation(config['current_tab'] - 1, tabs_wrapper, tabs, items, config);
 				} else {
-					tabsGK5Animation(amount - 1, tabs_wrapper, tab_animation, tabs, items, config);
+					tabsGK5Animation(amount - 1, tabs_wrapper, tabs, items, config);
 				}
 			});
 		}
@@ -63,9 +63,9 @@ jQuery(window).load(function(){
 					config['falsy_click'] = true;
 
 					if(config['current_tab'] < amount - 1) {
-						tabsGK5Animation(config['current_tab'] + 1, tabs_wrapper, tab_animation, tabs, items, config);
+						tabsGK5Animation(config['current_tab'] + 1, tabs_wrapper, tabs, items, config);
 					} else {
-						tabsGK5Animation(0, tabs_wrapper, tab_animation, tabs, items, config);
+						tabsGK5Animation(0, tabs_wrapper, tabs, items, config);
 					}
 				} else {
 					config['blank'] = false;
