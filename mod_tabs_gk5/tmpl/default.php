@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <?php if(count($this->tabs["title"]) > 0) : ?>
-<div id="<?php echo $this->config['module_id'];?>" class="gkTabsGK5" data-config="<?php echo $config_data; ?>">
+<div id="<?php echo $this->config['module_id'];?>" class="gkTabsGK5" data-config="<?php echo $config_data; ?>" data-swipe="<?php echo $this->config['mobile_swipe'];?>">
 	<div class="gkTabsWrap <?php echo ($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 'horizontal' : 'vertical'; ?>">
 	    <?php if($this->config['tabs_position'] == 'top' || $this->config['tabs_position'] == 'left') : ?>
 	    <ol class="gkTabsNav">

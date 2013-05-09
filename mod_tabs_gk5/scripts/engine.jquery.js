@@ -72,6 +72,63 @@ jQuery(window).load(function(){
 				}
 			}, config["animation_interval"]);
 		}
+		// touch events
+		if(el.attr('data-swipe') == '1') {
+			var arts_pos_start_x = 0;
+			var arts_pos_start_y = 0;
+			var arts_time_start = 0;
+			var arts_swipe = false;
+			
+			el.bind('touchstart', function(e) {
+				arts_swipe = true;
+				var touches = e.originalEvent.changedTouches || e.originalEvent.touches;
+	
+				if(touches.length > 0) {
+					arts_pos_start_x = touches[0].pageX;
+					arts_pos_start_y = touches[0].pageY;
+					arts_time_start = new Date().getTime();
+				}
+			});
+			
+			el.bind('touchmove', function(e) {
+				var touches = e.originalEvent.changedTouches || e.originalEvent.touches;
+				
+				if(touches.length > 0 && arts_swipe) {
+					if(
+						Math.abs(touches[0].pageX - arts_pos_start_x) > Math.abs(touches[0].pageY - arts_pos_start_y)
+					) {
+						e.preventDefault();
+					} else {
+						arts_swipe = false;
+					}
+				}
+			});
+						
+			el.bind('touchend', function(e) {
+				var touches = e.originalEvent.changedTouches || e.originalEvent.touches;
+				
+				if(touches.length > 0 && arts_swipe) {									
+					if(
+						Math.abs(touches[0].pageX - arts_pos_start_x) >= 30 && 
+						new Date().getTime() - arts_time_start <= 500
+					) {					
+						if(touches[0].pageX - arts_pos_start_x > 0) {
+							if(config['current_tab'] > 0) {
+								tabsGK5Animation(config['current_tab'] - 1, tabs_wrapper, tabs, items, config);
+							} else {
+								tabsGK5Animation(amount - 1, tabs_wrapper, tabs, items, config);
+							}
+						} else {
+							if(config['current_tab'] < amount - 1) {
+								tabsGK5Animation(config['current_tab'] + 1, tabs_wrapper, tabs, items, config);
+							} else {
+								tabsGK5Animation(0, tabs_wrapper, tabs, items, config);	
+							}
+						}
+					}
+				}
+			});
+		}
 	});
 });
 

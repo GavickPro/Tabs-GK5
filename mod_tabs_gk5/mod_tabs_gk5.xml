@@ -116,6 +116,11 @@
 				        <option value="mouseenter">MOD_TABS_MOUSEOVER</option>
 				</field>
 				
+				<field name="mobile_swipe" type="list" class="gk_switch" default="0" label="MOD_TABS_MOBILE_SWIPE" description="MOD_TABS_MOBILE_SWIPE_DESC">
+				        <option value="0">MOD_TABS_DISABLED</option>
+				        <option value="1">MOD_TABS_ENABLED</option>
+				</field>
+				
 				<field name="animation" type="list" default="1" class="gk_switch" label="MOD_TABS_AUTO_ANIMATION" description="MOD_TABS_AUTO_ANIMATION_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
@@ -207,6 +212,7 @@
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
+				
 				<field name="rtl" type="list" class="gk_switch" default="0" label="MOD_TABS_RTL_SUPPORT" description="MOD_TABS_RTL_SUPPORT_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
