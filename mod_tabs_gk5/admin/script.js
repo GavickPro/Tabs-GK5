@@ -76,6 +76,11 @@ var TabsGK5Settings = new Class({
 	},
 	// constructor
 	initialize: function() {
+	
+		// fix accordian names
+		$$('#moduleOptions a[href^="#collapse"]').each(function(el) {
+			el.id = el.innerHTML.replace(/ /g,'_').replace('!', '');
+		});
 		// helper handler
 		$this = this;
 		// handlers used in the code
@@ -94,21 +99,23 @@ var TabsGK5Settings = new Class({
 		var sourceMode = document.id('jform_params_module_data_source').get('value');
 		// add unvisible class
 		if(sourceMode == 'external') {
-			document.id('module-form').getElements('a[href^=#options-TABS_MANAGER]').getParent().addClass('gkUnvisible');
+			document.id('Tabs').getParent('.accordion-group').addClass('gkUnvisible');
 		} else {
-			document.id('module-form').getElements('a[href^=#options-EXTERNAL_SOURCES]').getParent().addClass('gkUnvisible');
+			document.id('External_sources').getParent('.accordion-group').addClass('gkUnvisible');
 		} 
 		// hide one of unnecessary tabs
 		document.id('jform_params_tabs_data-lbl').getParent().setStyle('display', 'none');
+		document.id('jform_params_tabs_data-lbl').getParent().getParent().getElement('.controls').setStyle('margin-left', 0);
 		document.id('jform_params_module_data_source').addEvent('change', function() {
 			if(sourceMode != document.id('jform_params_module_data_source').get('value')) {
 				sourceMode = document.id('jform_params_module_data_source').get('value');
+				console.log(sourceMode);
 				if(sourceMode == 'external') {
-					document.id('module-form').getElements('a[href^=#options-TABS_MANAGER]').getParent().addClass('gkUnvisible');
-					document.id('module-form').getElements('a[href^=#options-EXTERNAL_SOURCES]').getParent().removeClass('gkUnvisible');
+					document.id('Tabs').getParent('.accordion-group').addClass('gkUnvisible');
+					document.id('External_sources').getParent('.accordion-group').removeClass('gkUnvisible');
 				} else {
-					document.id('module-form').getElements('a[href^=#options-TABS_MANAGER]').getParent().removeClass('gkUnvisible');
-					document.id('module-form').getElements('a[href^=#options-EXTERNAL_SOURCES]').getParent().addClass('gkUnvisible');
+					document.id('Tabs').getParent('.accordion-group').removeClass('gkUnvisible');
+					document.id('External_sources').getParent('.accordion-group').addClass('gkUnvisible');
 				} 
 			}
 		});
@@ -224,7 +231,7 @@ var TabsGK5Settings = new Class({
 					tempTabs[i] = $this.options.tabs[item];
 				});
 				// save new tabs order
-				this.options.tabs = tempTabs;
+				$this.options.tabs = tempTabs;
 				// put the data to textarea field
 				document.id('jform_params_tabs_data').innerHTML = JSON.encode($this.options.tabs);
 				// to avoid problems with opening tab editor

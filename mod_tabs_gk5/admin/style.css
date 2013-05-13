@@ -243,7 +243,7 @@ button#config_manager_save {
 	min-width: 85px;
 	margin-left: 12px;
 }
-.nav-tabs > li.gkUnvisible {
+div.gkUnvisible {
 	display: none;
 }
 div.invisible {
@@ -307,7 +307,6 @@ div.gk_tab_edit_submit .btn,
 div.gk_tab_add_submit .btn {
 	margin-right: 10px;
 }
-
 
 /* Support for mobile */
 @media (max-width: 480px) {
