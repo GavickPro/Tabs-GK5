@@ -16,7 +16,6 @@ jQuery(window).load(function(){
 		config['blank'] = false;
 		config['falsy_click'] = false;
 		var animation_type = config['animation_type'];
-		var direction = (config['rtl'] == 0) ? 'left' : 'right';
 		//
 		tabs_wrapper.css('height', 'auto');
 		jQuery(tabs).css('opacity', 0);
@@ -133,6 +132,8 @@ jQuery(window).load(function(){
 });
 
 var tabsGK5Animation = function(i, tabs_wrapper, tabs, items, config) {
+	var direction = (config['rtl'] == 0) ? 'left' : 'right';
+	
 	if(i != config['current_tab']) {
 		config['previous_tab'] = config['current_tab'];
 		config['current_tab'] = i;
