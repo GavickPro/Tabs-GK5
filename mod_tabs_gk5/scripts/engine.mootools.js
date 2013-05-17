@@ -26,7 +26,6 @@ window.addEvent('load', function(){
 		config['falsy_click'] = false;
 		var animation_type = config['animation_type'];
 		var tab_animation = [];
-		var direction = (config['rtl'] == 0) ? 'left' : 'right';
 		
 		// prepare tabs animation
 		tabs.each(function(tab, i){ 
@@ -139,6 +138,9 @@ window.addEvent('load', function(){
 });
 
 var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, config) {
+
+	var direction = (config['rtl'] == 0) ? 'left' : 'right';
+	
 	if(i != config['current_tab']) {
 		config['previous_tab'] = config['current_tab'];
 		config['current_tab'] = i;
