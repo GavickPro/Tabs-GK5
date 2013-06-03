@@ -214,30 +214,32 @@ var TabsGK5Settings = new Class({
 				$this.options.isDragged = true;
 			},
 			onComplete: function(element) {
-				if(document.id('tabs_list').hasClass('dragging')) {
-					document.id('tabs_list').removeClass('dragging');
-				}
-				// getting new order
-				var newOrder = [];
-				document.id('tabs_list').getElements('.gk_tab_item').each(function(el, i) {
-					if(!el.hasClass('gk_tab_item_clone') && el.getProperty('data-order') != null) {
-						newOrder.push(el.getProperty('data-order').toInt());
+				if($this.options.isDragged){
+					if(document.id('tabs_list').hasClass('dragging')) {
+						document.id('tabs_list').removeClass('dragging');
 					}
-					el.removeProperty('data-order');
-				});
-				// make a new order
-				var tempTabs = [];
-				newOrder.each(function(item,i) {
-					tempTabs[i] = $this.options.tabs[item];
-				});
-				// save new tabs order
-				$this.options.tabs = tempTabs;
-				// put the data to textarea field
-				document.id('jform_params_tabs_data').innerHTML = JSON.encode($this.options.tabs);
-				// to avoid problems with opening tab editor
-				(function() {
-					$this.options.isDragged = false;
-				}).delay(100);
+					// getting new order
+					var newOrder = [];
+					document.id('tabs_list').getElements('.gk_tab_item').each(function(el, i) {
+						if(!el.hasClass('gk_tab_item_clone') && el.getProperty('data-order') != null) {
+							newOrder.push(el.getProperty('data-order').toInt());
+						}
+						el.removeProperty('data-order');
+					});
+					// make a new order
+					var tempTabs = [];
+					newOrder.each(function(item,i) {
+						tempTabs[i] = $this.options.tabs[item];
+					});
+					// save new tabs order
+					$this.options.tabs = tempTabs;
+					// put the data to textarea field
+					document.id('jform_params_tabs_data').innerHTML = JSON.encode($this.options.tabs);
+					// to avoid problems with opening tab editor
+					(function() {
+						$this.options.isDragged = false;
+					}).delay(100);
+				}
 			}
 		});
 	},
@@ -389,7 +391,7 @@ var TabsGK5Settings = new Class({
 			// clear and hide the form
 			add_form_btns[1].fireEvent('click');
 			// put the data to textarea field
-			document.id('jform_params_tabs_data').innerHTML = JSON.encode(this.options.tabs);
+			document.id('jform_params_tabs_data').innerHTML = JSON.encode($this.options.tabs);
 		}
 		// put the item to the list
 		item.inject(document.id('tabs_list'), 'bottom');
