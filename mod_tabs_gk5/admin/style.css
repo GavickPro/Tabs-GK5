@@ -549,3 +549,16 @@ a:hover.gk_tab_save {
 	-ms-transform: scale(0);
 	transform: scale(0);
 }
+
+/* Social media */
+#gk-social {
+	margin-top: 10px;
+}
+
+#gk-social > span:first-child {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 1.6;
+	margin-right: 20px;
+	vertical-align: top;  
+}
