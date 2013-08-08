@@ -15,6 +15,7 @@ jQuery(window).load(function(){
 		var timer = false;
 		config['blank'] = false;
 		config['falsy_click'] = false;
+		config['hover'] = false;
 		var animation_type = config['animation_type'];
 		//
 		tabs_wrapper.css('height', 'auto');
@@ -25,6 +26,13 @@ jQuery(window).load(function(){
 			'z-index': 2
 		});
 		
+		el.mouseenter(function() {
+			config['hover'] = true;
+		});
+		
+		el.mouseleave(function() {
+			config['hover'] = false;
+		});
 		
 		// set the fixed height
 		if(config['auto_height'] == '0') {
@@ -58,6 +66,10 @@ jQuery(window).load(function(){
 		//
 		if(config["animation"] == 1) {
 			setInterval(function(){
+				if(config['hover']) {
+					config['blank'] = true;
+				}
+				
 				if(!config['blank']) {
 					config['falsy_click'] = true;
 
