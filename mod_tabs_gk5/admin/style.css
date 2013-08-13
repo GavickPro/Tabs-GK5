@@ -322,3 +322,20 @@ div.gk_tab_add_submit .btn {
 	}
 
 }
+
+/* Social media */
+#gk-social {
+	margin: 10px 0;
+}
+
+#gk-social > span:first-child {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 1.6;
+	margin-right: 20px;
+	margin-left: 10px;
+	vertical-align: top;  
+}
+#gk-social iframe {
+	min-width: 140px
+}

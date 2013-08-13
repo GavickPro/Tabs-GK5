@@ -24,8 +24,17 @@ window.addEvent('load', function(){
 		config['previous_tab'] = null;
 		config['blank'] = false;
 		config['falsy_click'] = false;
+		config['hover'] = false;
 		var animation_type = config['animation_type'];
 		var tab_animation = [];
+		
+		el.addEvent('mouseenter', function() {
+			config['hover'] = true;
+		});
+		
+		el.addEvent('mouseleave', function() {
+			config['hover'] = false;
+		});
 		
 		// prepare tabs animation
 		tabs.each(function(tab, i){ 
@@ -70,6 +79,10 @@ window.addEvent('load', function(){
 		//
 		if(config["animation"] == 1) {
 			timer = (function(){
+				if(config['hover']) {
+					config['blank'] = true;
+				}
+			
 				if(!config['blank']) {
 					config['falsy_click'] = true;
 					if(config['current_tab'] < amount - 1) {
@@ -138,7 +151,6 @@ window.addEvent('load', function(){
 });
 
 var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, config) {
-
 	var direction = (config['rtl'] == 0) ? 'left' : 'right';
 	
 	if(i != config['current_tab']) {
