@@ -64,7 +64,7 @@
 /* tabs */
 .gkTabsWrap.vertical ol {
 	background: transparent!important;
-	height: 38px;
+	min-height: 38px;
 	margin: 0!important;
 	padding: 0!important;
 }

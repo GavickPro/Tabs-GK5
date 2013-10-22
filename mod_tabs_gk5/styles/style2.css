@@ -87,7 +87,7 @@
 
 .gkTabsWrap.vertical ol,
 .gkTabsWrap.horizontal > ol {
-	height: 40px;
+	min-height: 40px;
 	margin: 0!important;
 	padding: 0!important;
 }
