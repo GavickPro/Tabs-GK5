@@ -59,6 +59,11 @@ window.addEvent("domready",function(){
 	var configManager = new TabsGK5ConfigManager();
 	// initialize the main class
 	var settings = new TabsGK5Settings();
+	// check Joomla! version and add suffix
+	if((document.id('gk_about_us').get('data-jversion')).substr(0,3) == '3.2') {
+		document.id('module-form').addClass('j32');
+	}
+	
 });
 
 /*
@@ -81,6 +86,7 @@ var TabsGK5Settings = new Class({
 		$$('#moduleOptions a[href^="#collapse"]').each(function(el) {
 			el.id = el.innerHTML.replace(/ /g,'_').replace('!', '');
 		});
+		document.id('gk_about_us').getParent().setStyle('margin-left', '15px');
 		// helper handler
 		$this = this;
 		// handlers used in the code
@@ -99,9 +105,9 @@ var TabsGK5Settings = new Class({
 		var sourceMode = document.id('jform_params_module_data_source').get('value');
 		// add unvisible class
 		if(sourceMode == 'external') {
-			document.id('Tabs').getParent('.accordion-group').addClass('gkUnvisible');
+			if(document.id('Tabs')) { document.id('Tabs').getParent('.accordion-group').addClass('gkUnvisible'); }
 		} else {
-			document.id('External_sources').getParent('.accordion-group').addClass('gkUnvisible');
+			if(document.id('External_sources')) { document.id('External_sources').getParent('.accordion-group').addClass('gkUnvisible'); }
 		} 
 		// hide one of unnecessary tabs
 		document.id('jform_params_tabs_data-lbl').getParent().setStyle('display', 'none');
