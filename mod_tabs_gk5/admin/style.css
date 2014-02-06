@@ -20,7 +20,8 @@ select.gk_tab_edit_published + div,
 select.gk_tab_add_published + div,
 select.gk_tab_edit_animation + div,
 select.gk_tab_add_animation + div,
-label#jform_params_about_us {
+label#jform_params_about_us,
+#jform_params_about_us-lbl {
 	display: none;
 }
 div#options-TABS_MANAGER .controls {

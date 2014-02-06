@@ -2,7 +2,7 @@
 
 defined('JPATH_BASE') or die;
 // Joomla 3.0! compability
-define(DS, DIRECTORY_SEPARATOR);
+define('DS', DIRECTORY_SEPARATOR);
 
 jimport('joomla.form.formfield');
 jimport('joomla.filesystem.file');
