@@ -83,12 +83,10 @@ class JFormFieldTabmanager extends JFormField {
 		// generate the selectbox
 		$form_animation_tooltip = ($type == 'add') ? ' class="hasTip" title="' . JText::_('MOD_TABS_GK5_FORM_ANIMATION_TOOLTIP') . '"' : '';
 		$form_animation_select = '<p><label'.$form_animation_tooltip.'>'.JText::_('MOD_TABS_GK5_FORM_ANIMATION').'</label><select class="gk_tab_'.$type.'_animation">';
-		$form_animation_select .= '<option value="default">'.JText::_('MOD_TABS_GK5_FORM_ANIMATION_DEFAULT').'</option>';
-		$flag_start = false;
+		$form_animation_select .= '<option value="default" selected="selected">'.JText::_('MOD_TABS_GK5_FORM_ANIMATION_DEFAULT').'</option>';
 		// generate options
 		foreach($json_animations as $animation) {
 			$form_animation_select .= '<option value="'.$animation.'"'.(!$flag_start ? ' selected="selected"' : '').'>'.$animation.'</option>';
-			$flag_start = true;
 		}
 		// close the selectbox
 		$form_animation_select .= '</select></p>';

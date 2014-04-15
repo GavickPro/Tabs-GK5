@@ -2,12 +2,12 @@
 <extension type="module" version="1.6.0" client="site" method="upgrade">
 	<name>Tabs GK5</name>
 	<author>GavickPro</author>
-	<creationDate>06/02/2014</creationDate>
+	<creationDate>16/04/2014</creationDate>
 	<copyright>Copyright (C) 2011-2014 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
 	<authorUrl>www.gavickpro.com</authorUrl>
-	<version>1.5.1</version>
+	<version>1.6.0</version>
 	<description><![CDATA[
 		<style type="text/css">
 			span.readonly { padding: 10px; font-family: Arial; font-size:13px !important; font-weight: normal !important; text-align: justify; color: #4d4d4d; line-height: 24px; }
@@ -21,7 +21,7 @@
 			span.readonly p.license { border-top: 1px solid #eee; font-size: 11px; margin: 30px 26px 0; padding: 6px 0; }
 		</style>
 		
-		<span class="readonly"><h1>Tabs GK5<small>ver. 1.5.1</small></h1><p>GK5 is one product of the next generation of GavickPro extensions designed exclusively for Joomla 2.5+.</p><p>With the Tabs GK5 module, you can implement space-saving tabs on websites and incorporate a variety of content types via modules or user-defined custom HTML code.  Thanks to the tab management system we've integrated into the module, Tabs GK5 remains easy, intuitive and quick to configure.  With built-in support for external data sources, the possibilities for implementing this new release are unlimited!</p> <p class='homepage'><a href='https://www.gavick.com/best-free-joomla-tab-module.html' target='_blank'>Learn more at the Tabs GK5 project website.</a></p><p class='license'>Tabs GK5 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
+		<span class="readonly"><h1>Tabs GK5<small>ver. 1.6.0</small></h1><p>GK5 is one product of the next generation of GavickPro extensions designed exclusively for Joomla 2.5+.</p><p>With the Tabs GK5 module, you can implement space-saving tabs on websites and incorporate a variety of content types via modules or user-defined custom HTML code.  Thanks to the tab management system we've integrated into the module, Tabs GK5 remains easy, intuitive and quick to configure.  With built-in support for external data sources, the possibilities for implementing this new release are unlimited!</p> <p class='homepage'><a href='https://www.gavick.com/best-free-joomla-tab-module.html' target='_blank'>Learn more at the Tabs GK5 project website.</a></p><p class='license'>Tabs GK5 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
 		 <span class='tooltip-content'>Advanced tabs module for Joomla! 2.5</span>
 	]]></description>
 	<files>
@@ -130,51 +130,12 @@
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 				
-				<field name="animation_speed" type="text" class="input-ms" size="5" default="250" label="MOD_TABS_ANIMATION_SPEED" description="MOD_TABS_ANIMATION_SPEED_DESC" />
-				
 				<field name="animation_interval" type="text" class="input-ms" size="5" default="5000" label="MOD_TABS_ANIMATION_INTERVAL" description="MOD_TABS_ANIMATION_INTERVAL_DESC" />
 				
 				<field name="animation_type" type="list" default="opacity" label="MOD_TABS_ANIMATION_TYPE" description="MOD_TABS_ANIMATION_TYPE_DESC">
 				        <option value="opacity">MOD_TABS_OPACITY</option>
 				        <option value="slide_vertical">MOD_TABS_SLIDE_VERTICAL</option>
 				        <option value="slide_horizontal">MOD_TABS_SLIDE_HORIZONTAL</option>
-				</field>
-				
-				<field name="animation_function" type="list" default="Fx.Transitions.linear" label="MOD_TABS_ANIMATION_FUNCTION" description="MOD_TABS_ANIMATION_FUNCTION_DESC">
-				        <option value="Fx.Transitions.linear">linear</option>
-				        <option value="Fx.Transitions.Quad.easeIn">Quad.easeIn</option>
-				        <option value="Fx.Transitions.Quad.easeOut">Quad.easeOut</option>
-				        <option value="Fx.Transitions.Quad.easeInOut">Quad.easeInOut</option>
-				        <option value="Fx.Transitions.Cubic.easeIn">Cubic.easeIn</option>
-				        <option value="Fx.Transitions.Cubic.easeOut">Cubic.easeOut</option>
-				        <option value="Fx.Transitions.Cubic.easeInOut">Cubic.easeInOut</option>
-				        <option value="Fx.Transitions.Quart.easeIn">Quart.easeIn</option>
-				        <option value="Fx.Transitions.Quart.easeOut">Quart.easeOut</option>
-				        <option value="Fx.Transitions.Quart.easeInOut">Quart.easeInOut</option>
-				        <option value="Fx.Transitions.Quint.easeIn">Quint.easeIn</option>
-				        <option value="Fx.Transitions.Quint.easeOut">Quint.easeOut</option>
-				        <option value="Fx.Transitions.Quint.easeInOut">Quint.easeInOut</option>
-				        <option value="Fx.Transitions.Pow.easeIn">Pow.easeIn</option>
-				        <option value="Fx.Transitions.Pow.easeOut">Pow.easeOut</option>
-				        <option value="Fx.Transitions.Pow.easeInOut">Pow.easeInOut</option>
-				        <option value="Fx.Transitions.Expo.easeIn">Expo.easeIn</option>
-				        <option value="Fx.Transitions.Expo.easeOut">Expo.easeOut</option>
-				        <option value="Fx.Transitions.Expo.easeInOut">Expo.easeInOut</option>
-				        <option value="Fx.Transitions.Circ.easeIn">Circ.easeIn</option>
-				        <option value="Fx.Transitions.Circ.easeOut">Circ.easeOut</option>
-				        <option value="Fx.Transitions.Circ.easeInOut">Circ.easeInOut</option>
-				        <option value="Fx.Transitions.Sine.easeIn">Sine.easeIn</option>
-				        <option value="Fx.Transitions.Sine.easeOut">Sine.easeOut</option>
-				        <option value="Fx.Transitions.Sine.easeInOut">Sine.easeInOut</option>
-				        <option value="Fx.Transitions.Back.easeIn">Back.easeIn</option>
-				        <option value="Fx.Transitions.Back.easeOut">Back.easeOut</option>
-				        <option value="Fx.Transitions.Back.easeInOut">Back.easeInOut</option>
-				        <option value="Fx.Transitions.Bounce.easeIn">Bounce.easeIn</option>
-				        <option value="Fx.Transitions.Bounce.easeOut">Bounce.easeOut</option>
-				        <option value="Fx.Transitions.Bounce.easeInOut">Bounce.easeInOut</option>
-				        <option value="Fx.Transitions.Elastic.easeIn">Elastic.easeIn</option>
-				        <option value="Fx.Transitions.Elastic.easeOut">Elastic.easeOut</option>
-				        <option value="Fx.Transitions.Elastic.easeInOut">Elastic.easeInOut</option>
 				</field>
 			</fieldset>
 			<!-- advanced -->

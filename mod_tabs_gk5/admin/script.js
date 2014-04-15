@@ -468,13 +468,6 @@ var TabsGK5Settings = new Class({
 				}
 			});
 		});
-		// creating the demo link
-		new Element('a', { 
-			'href' : 'http://mootools.net/demos/?demo=Transitions', 
-			'target' : '_blank', 
-			'id' : 'gkDemoLink', 
-			'html' : 'Demo'  
-		}).inject(document.id('jform_params_animation_function'), 'after');
 		// creating the help link
 		var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://www.gavick.com/best-free-joomla-tab-module.html', 'target' : '_blank' })
 		link.inject($$('div.panel')[$$('div.panel').length-1].getElement('h3'), 'bottom');
