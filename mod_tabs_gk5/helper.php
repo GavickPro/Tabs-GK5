@@ -208,7 +208,7 @@ class TabsGK5Helper {
 		// iterate all tabs
 		for($i = 0; $i < count($this->tabs["content"]); $i++) {
 			// check if selected tab is active
-			$active_class = ' ' . (($this->tabs['animation'][$i] == 'default') ? $this->config['animation_type'] : $this->tabs['animation'][$i]) . ' ' . (($this->active_tab == $i + 1) ? 'active' : 'hide');
+			$active_class = ' gk-' . (($this->tabs['animation'][$i] == 'default') ? $this->config['animation_type'] : $this->tabs['animation'][$i]) . ' ' . (($this->active_tab == $i + 1) ? 'gk-active' : 'gk-hide');
 			// if the tab contains the module
 			if($this->tabs["type"][$i] == 'module') {
 				$this->mod_getter = JModuleHelper::getModules($this->tabs["content"][$i]);

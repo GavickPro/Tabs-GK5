@@ -143,13 +143,13 @@ var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, con
 			tabs_wrapper.setStyle('min-height', tabs_wrapper.getSize().y + 'px');
 		}
 		
-		tabs.removeClass('active');
-		tabs[i].addClass('active');
-		tabs[config['previous_tab']].removeClass('active');
-		tabs[config['previous_tab']].addClass('hidden');
-		tabs[i].removeClass('hide');
-		tabs[i].removeClass('hidden');
-		tabs[i].addClass('active');
+		tabs.removeClass('gk-active');
+		tabs[i].addClass('gk-active');
+		tabs[config['previous_tab']].removeClass('gk-active');
+		tabs[config['previous_tab']].addClass('gk-hidden');
+		tabs[i].removeClass('gk-hide');
+		tabs[i].removeClass('gk-hidden');
+		tabs[i].addClass('gk-active');
 		
 		items[config['previous_tab']].removeClass('active');
 		items[i].addClass('active');
@@ -157,9 +157,9 @@ var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, con
 		var prev = config['previous_tab'];
 		
 		setTimeout(function() {
-			if(tabs[prev].hasClass('hidden') && !tabs[prev].hasClass('active')) {
-				tabs[prev].removeClass('hidden');
-				tabs[prev].addClass('hide');
+			if(tabs[prev].hasClass('gk-hidden') && !tabs[prev].hasClass('gk-active')) {
+				tabs[prev].removeClass('gk-hidden');
+				tabs[prev].addClass('gk-hide');
 			}
 		}, 350);
 		
