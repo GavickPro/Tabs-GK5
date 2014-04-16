@@ -140,7 +140,7 @@ var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, con
 		config['current_tab'] = i;
 		
 		if(config['auto_height'] == '1') {
-			tabs_wrapper.setStyle('height', tabs_wrapper.getSize().y + 'px');
+			tabs_wrapper.setStyle('min-height', tabs_wrapper.getSize().y + 'px');
 		}
 		
 		tabs.removeClass('active');
@@ -150,6 +150,9 @@ var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, con
 		tabs[i].removeClass('hide');
 		tabs[i].removeClass('hidden');
 		tabs[i].addClass('active');
+		
+		items[config['previous_tab']].removeClass('active');
+		items[i].addClass('active');
 		
 		var prev = config['previous_tab'];
 		
@@ -162,7 +165,7 @@ var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, con
 		
 		//
 		if(config['auto_height'] == '1') {
-			tabs_wrapper.setStyle('height', tabs[i].getSize().y);
+			tabs_wrapper.setStyle('min-height', tabs[i].getSize().y + "px");
 			
 			setTimeout(function() {
 				tabs_wrapper.setStyle('height', 'auto');

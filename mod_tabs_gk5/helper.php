@@ -135,6 +135,8 @@ class TabsGK5Helper {
 		// add stylesheets to document header
 		if($this->config["useCSS"] == 1) {
 			$document->addStyleSheet( $uri->root().'modules/mod_tabs_gk5/styles/'.$this->config['styleCSS'].'.css', 'text/css' );
+		} else {
+			$document->addStyleSheet( $uri->root().'modules/mod_tabs_gk5/styles/backward-compatibility.css', 'text/css' );
 		}
 		// get active tab:
 		$uri_id_fragment = '';
