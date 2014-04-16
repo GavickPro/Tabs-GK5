@@ -5,18 +5,6 @@ window.addEvent('load', function(){
 		var tabs = el.getElements('.gkTabsItem');
 		var items = el.getElements('.gkTabsNav li');
 		var tabs_wrapper = el.getElement('.gkTabsContainer');
-		config['tabs_wrapper_anim'] = new Fx.Tween(tabs_wrapper, {
-															duration: config['animation_speed'], 
-															property: 'height', 
-															wait: 'ignore', 
-															onComplete: function() { 
-																this.element.setStyle('height', 'auto');
-																tabs[config['previous_tab']].setStyles({
-																	'position': 'absolute',
-																	'top': '0'
-																});	 
-															}
-														});
 		var animation = (config['animation'] == 0) ? true : false;
 		var amount = tabs.length;
 		var timer = false;
@@ -42,12 +30,6 @@ window.addEvent('load', function(){
 		});
 			
 		tabs_wrapper.setStyle('height', 'auto');
-		tabs.setStyle('opacity', 0);
-		tabs[config['active_tab']-1].setStyles({
-			'opacity': '1',
-			'position': 'relative',
-			'z-index': 2
-		});
 		// set the fixed height
 		if(config['auto_height'] == '0') {
 			tabs_wrapper.setStyle('height', config['module_height'] + 'px');
@@ -158,75 +140,47 @@ var tabsGK5Animation = function(i, tabs_wrapper, tab_animation, tabs, items, con
 		config['current_tab'] = i;
 		
 		if(config['auto_height'] == '1') {
-			tabs_wrapper.setStyle('height', tabs_wrapper.getSize().y + 'px');
+			tabs_wrapper.setStyle('min-height', tabs_wrapper.getSize().y + 'px');
 		}
 		
-		var previous_animation = (items.lenght) ? items[config['previous_tab']].get('data-animation') : 'default';
-		if(previous_animation == 'default') previous_animation = config['animation_type'];
-		var previous_tab_animation = { 'opacity': 0 };
-		var current_animation = (items.length) ? items[config['current_tab']].get('data-animation') : 'default';
-		if(current_animation == 'default') current_animation = config['animation_type'];
-		var current_tab_animation = { 'opacity': 1 };
-		//
-		if(previous_animation == 'slide_horizontal') {
-			previous_tab_animation[direction] = -1 * tabs[config['previous_tab']].getSize().x;
-		} else if(previous_animation == 'slide_vertical') {
-			previous_tab_animation['top'] = -1 * tabs[config['previous_tab']].getSize().y;
-		} 
-		//
-		if(current_animation == 'slide_horizontal') {
-			current_tab_animation[direction] = 0;
-		} else if(current_animation == 'slide_vertical') {
-			current_tab_animation['top'] = 0;
-		}
-		//
-		tab_animation[config['previous_tab']].start(previous_tab_animation);
-		tabs[config['previous_tab']].setStyles({
-			'z-index': '1'
-		});
-		//
-		tabs[config['previous_tab']].removeClass('active');
-		tabs[config['current_tab']].addClass('active');
+		tabs.removeClass('gk-active');
+		tabs[i].addClass('gk-active');
+		tabs[config['previous_tab']].removeClass('gk-active');
+		tabs[config['previous_tab']].addClass('gk-hidden');
+		tabs[i].removeClass('gk-hide');
+		tabs[i].removeClass('gk-hidden');
+		tabs[i].addClass('gk-active');
+		
+		items[config['previous_tab']].removeClass('active');
+		items[i].addClass('active');
+		
+		var prev = config['previous_tab'];
+		
+		setTimeout(function() {
+			if(tabs[prev].hasClass('gk-hidden') && !tabs[prev].hasClass('gk-active')) {
+				tabs[prev].removeClass('gk-hidden');
+				tabs[prev].addClass('gk-hide');
+			}
+		}, 350);
+		
 		//
 		if(config['auto_height'] == '1') {
-			config['tabs_wrapper_anim'].start(tabs_wrapper.getSize().y, tabs[i].getSize().y);
-		} else {
-			tabs[config['previous_tab']].setStyles({
-				'position': 'absolute',
-				'top': '0'
-			});
-		}
-		//
-		(function(){
-			//
-			if(current_animation == 'slide_horizontal') {
-				tabs[config['current_tab']].setStyle(direction, tabs[config['current_tab']].getSize().x);
-			} else if(current_animation == 'slide_vertical') {
-				tabs[config['current_tab']].setStyle('top', tabs[config['current_tab']].getSize().y);
-			}
-			// anim
-			tab_animation[config['current_tab']].start(current_tab_animation);
+			tabs_wrapper.setStyle('min-height', tabs[i].getSize().y + "px");
 			
-			tabs[config['current_tab']].setStyles({
-				'position': 'relative',
-				'z-index': '2'
-			});
-		}).delay(config['animation_speed']);
+			setTimeout(function() {
+				tabs_wrapper.setStyle('height', 'auto');
+			}, 350);
+		}
 		
 		// external trigger
 		if(typeof gkTabEventTrigger !== 'undefined') {
-			gkTabEventTrigger(i, config['current_tab'], config['module_id']);
+			gkTabEventTrigger(i, i, config['module_id']);
 		}
 		// common operations for both types of animation
 		if(!config['falsy_click']) {
 			config['blank'] = true;
 		} else {
 			config['falsy_click'] = false;
-		}
-		
-		if(items.length) {
-			items[config['previous_tab']].removeClass('active');
-			items[config['current_tab']].addClass('active');
 		}
 		
 		if(config['cookie_save'] == 1) {

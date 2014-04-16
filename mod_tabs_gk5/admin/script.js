@@ -409,6 +409,8 @@ var TabsGK5Settings = new Class({
 	// function used to make other adjustments in the form
 	formInit: function() {
 		
+		
+		
 		document.id('config_manager_form').getParent().setStyle('margin', '0');
 		// adjust the inputs
 		$$('.input-pixels').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">px</span></div>"});
@@ -416,19 +418,6 @@ var TabsGK5Settings = new Class({
 		$$('.input-percents').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">%</span></div>"});
 		$$('.input-minutes').each(function(el){el.getParent().innerHTML = "<div class=\"input-prepend\">" + el.getParent().innerHTML + "<span class=\"add-on\">minutes</span></div>"});
 			
-				// creating the demo link
-//		new Element('a', { 
-//			'href' : 'http://mootools.net/demos/?demo=Transitions', 
-//			'target' : '_blank', 
-//			'id' : 'gkDemoLink', 
-//			'html' : 'Demo'  
-//		}).inject(document.id('jform_params_animation_function'), 'after');
-		// creating the help link
-//		var link = new Element('a', { 'class' : 'gkHelpLink', 'href' : 'http://www.gavick.com/best-free-joomla-tab-module.html', 'target' : '_blank' })
-//		link.inject($$('div.panel')[$$('div.panel').length-1].getElement('h3'), 'bottom');
-//		link.addEvent('click', function(e) { e.stopPropagation(); });
-		// removing unnecessary borders
-//		document.id('TABS_MANAGER-options').getParent().getElement('.panelform .adminformlist li').setStyle('border', 'none');
 	},
 	// function to encode chars
 	htmlspecialchars: function(string) {

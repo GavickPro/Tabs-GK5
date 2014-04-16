@@ -26,27 +26,27 @@ class TabsGK5Helper {
 	public function __construct($module, $params) {
 		// put the module params to the $config variable
 		$this->config = $params->toArray();
-		// if the user set engine mode to Mootools
-		if($this->config['engine_mode'] == 'mootools') {
-			// load the MooTools framework to use with the module
-			JHtml::_('behavior.framework', true);
-		} else if($this->config['include_jquery'] == 1) {
-			// if the user specify to include the jQuery framework - load newest jQuery 1.7.* 
-			$doc = JFactory::getDocument();
-			// generate keys of script section
-			$headData = $doc->getHeadData();
-			$headData_keys = array_keys($headData["scripts"]);
-			// set variable for false
-			$engine_founded = false;
-			// searching phrase mootools in scripts paths
-			if(array_search('https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js', $headData_keys) > 0) {
-				$engine_founded = true;
-			}
-			//
-			if(!$engine_founded) {
-				$doc->addScript('https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js');
-			}
-		}
+        // if the user set engine mode to Mootools
+        if($this->config['engine_mode'] == 'mootools') {
+            // load the MooTools framework to use with the module
+            JHtml::_('behavior.framework', true);
+        } else if($this->config['include_jquery'] == 1) {
+            // if the user specify to include the jQuery framework - load newest jQuery 1.7.* 
+            $doc = JFactory::getDocument();
+            // generate keys of script section
+            $headData = $doc->getHeadData();
+            $headData_keys = array_keys($headData["scripts"]);
+            // set variable for false
+            $engine_founded = false;
+            // searching phrase mootools in scripts paths
+            if(array_search('https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js', $headData_keys) > 0) {
+                $engine_founded = true;
+            }
+            //
+            if(!$engine_founded) {
+                $doc->addScript('https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js');
+            }
+        }
 		// set the active tab
 		$this->active_tab = $this->config['initial_tab'];
 		// initializing the tabs array
@@ -76,30 +76,26 @@ class TabsGK5Helper {
 					// and parse it
 					$this->config['tabs_data'] = json_decode($json_content);
 				} else if(stripos($this->config['external_source'], '.xml') !== FALSE) {
-
+					// Load Simple XML parser
+					jimport('joomla.utilities.simplexml');
 					// create a new instance of the JSimpleXML parser
-					
+					$xml = new JSimpleXML(); 
 					// loading file
-					$xml = simplexml_load_file(JPATH_ROOT . DS . 'modules' . DS . 'mod_tabs_gk5' . DS . 'external_data' . DS . $this->config['external_source']);
-					
-			
-				
+					$xml->loadFile(JPATH_ROOT . DS . 'modules' . DS . 'mod_tabs_gk5' . DS . 'external_data' . DS . $this->config['external_source']);
 					// creating empty array
 					$this->config['tabs_data'] = array();
 					// parsing tabs
-					foreach($xml as $id => $tab) {
-						
-						
+					foreach($xml->document->tab as $tab) {
 					    array_push(
 					    	$this->config['tabs_data'], 
 					    	new GKTabObject(
-					    		reset($tab->name),
-					    		reset($tab->type),
-					    		reset($tab->content),
-					    		reset($tab->published),
-					    		reset($tab->access),
-					    		reset($tab->id),
-					    		reset($tab->animation)
+					    		$tab->getElementByPath('name')->data(),
+					    		$tab->getElementByPath('type')->data(),
+					    		$tab->getElementByPath('content')->data(),
+					    		$tab->getElementByPath('published')->data(),
+					    		$tab->getElementByPath('access')->data(),
+					    		$tab->getElementByPath('id')->data(),
+					    		$tab->getElementByPath('animation')->data()
 					    	)
 					    );
 					}
@@ -139,6 +135,8 @@ class TabsGK5Helper {
 		// add stylesheets to document header
 		if($this->config["useCSS"] == 1) {
 			$document->addStyleSheet( $uri->root().'modules/mod_tabs_gk5/styles/'.$this->config['styleCSS'].'.css', 'text/css' );
+		} else {	
+			$document->addStyleSheet( $uri->root().'modules/mod_tabs_gk5/styles/backward-compatibility.css', 'text/css' );
 		}
 		// get active tab:
 		$uri_id_fragment = '';
@@ -188,13 +186,19 @@ class TabsGK5Helper {
 			"active_tab" =>			$this->active_tab,
 			"cookie_save" => 		$this->config['cookie_tab_selection'],
 			"auto_height" =>		($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 0 : $this->config['module_auto_height'],
-			"module_height" =>		$this->config['module_height']
+			"module_height" =>		$this->config['module_height'],
+			"rtl" => $this->config['rtl']
 		);
 		// store it as JSON
 		$config_data = str_replace('"', '\'', json_encode($config_data));
 		//
 		if($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') {
 			$document->addStyleDeclaration('#'.$this->config['module_id'].' .gkTabsWrap > ol { width: '.$this->config['tabs_width'].'px; }'. "\n");
+		}
+		// override styles for RTL
+		if($this->config['rtl'] == 1) {
+			$document->addStyleDeclaration('.gkTabsItem.active { left: auto; right: 0; }'."\n");
+			$document->addStyleDeclaration('.gkTabsItem { left: auto; right: -9999px; }'."\n");
 		}
 		// include main module view
 		require(JModuleHelper::getLayoutPath('mod_tabs_gk5', 'default'));
@@ -204,7 +208,7 @@ class TabsGK5Helper {
 		// iterate all tabs
 		for($i = 0; $i < count($this->tabs["content"]); $i++) {
 			// check if selected tab is active
-			$active_class = ($this->active_tab == $i + 1) ? ' active' : '';
+			$active_class = ' gk-' . (($this->tabs['animation'][$i] == 'default') ? $this->config['animation_type'] : $this->tabs['animation'][$i]) . ' ' . (($this->active_tab == $i + 1) ? 'gk-active' : 'gk-hide');
 			// if the tab contains the module
 			if($this->tabs["type"][$i] == 'module') {
 				$this->mod_getter = JModuleHelper::getModules($this->tabs["content"][$i]);
