@@ -11,7 +11,6 @@
 **/
 
 defined('JPATH_BASE') or die;
-
 jimport('joomla.form.formfield');
 
 class JFormFieldTabmanager extends JFormField {

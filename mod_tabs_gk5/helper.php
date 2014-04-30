@@ -135,7 +135,7 @@ class TabsGK5Helper {
 		// add stylesheets to document header
 		if($this->config["useCSS"] == 1) {
 			$document->addStyleSheet( $uri->root().'modules/mod_tabs_gk5/styles/'.$this->config['styleCSS'].'.css', 'text/css' );
-		} else {	
+		} else {
 			$document->addStyleSheet( $uri->root().'modules/mod_tabs_gk5/styles/backward-compatibility.css', 'text/css' );
 		}
 		// get active tab:
@@ -179,10 +179,8 @@ class TabsGK5Helper {
 		$config_data = array(
 			"activator" =>			$this->config['activator'],
 			"animation" =>			$this->config['animation'],
-			"animation_speed" => 	$this->config['animation_speed'],
 			"animation_interval" =>	$this->config['animation_interval'],
 			"animation_type" =>		$this->config['animation_type'],
-			"animation_function" => $this->config['animation_function'],
 			"active_tab" =>			$this->active_tab,
 			"cookie_save" => 		$this->config['cookie_tab_selection'],
 			"auto_height" =>		($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 0 : $this->config['module_auto_height'],
@@ -243,7 +241,7 @@ if(!class_exists('GKTabObject')) {
 		public $access;
 		public $id;
 		public $animation;
-		
+
 		function __construct($name, $type, $content, $published, $access, $id, $animation) {
 			$this->name = $name;
 			$this->type = $type;

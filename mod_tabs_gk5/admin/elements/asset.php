@@ -25,6 +25,7 @@ class JFormFieldAsset extends JFormField {
 		// include the prefixfree for less work with CSS code
 		$doc->addScript(JURI::root().$this->element['path'].'prefixfree.js');
 		// include the back-end scripts
+		$doc->addScript(JURI::root().'media/system/js/mootools-more.js');
 		$doc->addScript(JURI::root().$this->element['path'].'script.js');
 		// include the back-end styles
 		$doc->addStyleSheet(JURI::root().$this->element['path'].'style.css');        

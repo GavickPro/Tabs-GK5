@@ -60,8 +60,9 @@ window.addEvent("domready",function(){
 	// initialize the main class
 	var settings = new TabsGK5Settings();
 	// check Joomla! version and add suffix
-	if((document.id('gk_about_us').get('data-jversion')).substr(0,3) == '3.2') {
-		document.id('module-form').addClass('j32');
+	// check Joomla! version and add suffix
+	if(parseFloat((jQuery('#gk_about_us').data('jversion')).substr(0,3)) >= '3.2') {
+		jQuery('#module-form').addClass('j32');
 	}
 	
 });
