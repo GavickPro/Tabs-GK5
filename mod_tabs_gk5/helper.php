@@ -179,10 +179,8 @@ class TabsGK5Helper {
 		$config_data = array(
 			"activator" =>			$this->config['activator'],
 			"animation" =>			$this->config['animation'],
-			"animation_speed" => 	$this->config['animation_speed'],
 			"animation_interval" =>	$this->config['animation_interval'],
 			"animation_type" =>		$this->config['animation_type'],
-			"animation_function" => $this->config['animation_function'],
 			"active_tab" =>			$this->active_tab,
 			"cookie_save" => 		$this->config['cookie_tab_selection'],
 			"auto_height" =>		($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 0 : $this->config['module_auto_height'],
