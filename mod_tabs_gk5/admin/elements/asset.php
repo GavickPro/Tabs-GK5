@@ -12,9 +12,9 @@
 
 defined('JPATH_BASE') or die;
 
-
-
 jimport('joomla.form.formfield');
+
+JHtml::_('behavior.framework', true);
 
 class JFormFieldAsset extends JFormField {
 	protected $type = 'Asset';
@@ -24,13 +24,10 @@ class JFormFieldAsset extends JFormField {
 		$doc = JFactory::getDocument();
 		// include the prefixfree for less work with CSS code
 		$doc->addScript(JURI::root().$this->element['path'].'prefixfree.js');
-		// include the back-end scripts
-		$doc->addScript(JURI::root().'media/system/js/mootools-more.js');
-		$doc->addScript(JURI::root().$this->element['path'].'script.js');
 		// include the back-end styles
 		$doc->addStyleSheet(JURI::root().$this->element['path'].'style.css');        
-		// return null, because there is no HTML output
-		return null;
+		// include the back-end scripts
+		return '<script src="'.JURI::root().$this->element['path'].'script.js"></script>';
 	}
 }
 
