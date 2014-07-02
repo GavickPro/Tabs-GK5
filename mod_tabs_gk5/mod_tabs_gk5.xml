@@ -136,6 +136,10 @@
 				        <option value="opacity">MOD_TABS_OPACITY</option>
 				        <option value="slide_vertical">MOD_TABS_SLIDE_VERTICAL</option>
 				        <option value="slide_horizontal">MOD_TABS_SLIDE_HORIZONTAL</option>
+				        <option value="scale">MOD_TABS_SLIDE_SCALE</option>
+				        <option value="rotate_x">MOD_TABS_SLIDE_ROTATE_X</option>
+				        <option value="rotate_y">MOD_TABS_SLIDE_ROTATE_Y</option>
+				        <option value="rotate_z">MOD_TABS_SLIDE_ROTATE_Z</option>
 				</field>
 			</fieldset>
 			<!-- advanced -->
