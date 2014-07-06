@@ -2,12 +2,12 @@
 <extension type="module" version="1.6.0" client="site" method="upgrade">
 	<name>Tabs GK5</name>
 	<author>GavickPro</author>
-	<creationDate>30/04/2014</creationDate>
+	<creationDate>07/07/2014</creationDate>
 	<copyright>Copyright (C) 2011-2014 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
 	<authorUrl>www.gavickpro.com</authorUrl>
-	<version>1.6.1</version>
+	<version>1.7.0</version>
 	<description><![CDATA[
 		<style type="text/css">
 			span.readonly { padding: 10px; font-family: Arial; font-size:13px !important; font-weight: normal !important; text-align: justify; color: #4d4d4d; line-height: 24px; }
@@ -100,6 +100,8 @@
 				        <option value="right">MOD_TABS_RIGHT</option>
 				        <option value="disabled">MOD_TABS_DISABLED</option>
 				</field>
+				
+				<field name="tabs_pre_text" type="text" size="20" default="" label="MOD_TABS_PRE_TEXT" description="MOD_TABS_PRE_TEXT_DESC" />
 				
 				<field name="tabs_width" type="text" size="3" class="input-pixels text_area" default="200" label="MOD_TABS_TABS_WIDTH" description="MOD_TABS_TABS_WIDTH_DESC" />
 				

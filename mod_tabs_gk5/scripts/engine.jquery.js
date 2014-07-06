@@ -6,7 +6,7 @@ jQuery(window).load(function(){
 		var config = jQuery.parseJSON(el.attr('data-config').replace(new RegExp('\'', 'g'), '"')); 
 		config['module_id'] = el.attr('id');
 		var tabs = el.find('.gkTabsItem');
-		var items = el.find('.gkTabsNav li');
+		var items = el.find('.gkTabsNav .gkTab');
 		var tabs_wrapper = jQuery(el.find('.gkTabsContainer')[0]);
 		var animation = (config['animation'] == 0) ? true : false;
 		config['current_tab'] = config['active_tab'] - 1;

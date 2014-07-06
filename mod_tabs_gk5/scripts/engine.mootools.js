@@ -3,7 +3,7 @@ window.addEvent('load', function(){
 		var config = JSON.decode(el.get('data-config')); 
 		config['module_id'] = el.getProperty('id');
 		var tabs = el.getElements('.gkTabsItem');
-		var items = el.getElements('.gkTabsNav li');
+		var items = el.getElements('.gkTabsNav .gkTab');
 		var tabs_wrapper = el.getElement('.gkTabsContainer');
 		var animation = (config['animation'] == 0) ? true : false;
 		var amount = tabs.length;
