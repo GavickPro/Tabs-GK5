@@ -20,9 +20,13 @@ defined('_JEXEC') or die('Restricted access');
 	<div class="gkTabsWrap <?php echo ($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 'horizontal' : 'vertical'; ?>">
 	    <?php if($this->config['tabs_position'] == 'top' || $this->config['tabs_position'] == 'left') : ?>
 	    <ol class="gkTabsNav">
+	    	<?php if($this->config['tabs_pre_text'] != '') : ?>
+	    	<li class="gkTabsPreText"><strong><?php echo $this->config['tabs_pre_text']; ?></strong></li>
+	    	<?php endif ; ?>
+	    	
 	    	<?php for($i = 0; $i < count($this->tabs["title"]); $i++) : ?>
 	    	<?php $active_class = ($this->active_tab == $i + 1) ? ' active' : ''; ?>
-	    	<li<?php if($this->tabs["id"][$i] != '') echo ' id="'.($this->tabs['id'][$i]).'"'; ?> class="gkTabs-<?php echo ($i+1) . $active_class; ?>" data-animation="<?php echo $this->tabs['animation'][$i]!= '' ? $this->tabs['animation'][$i] : 'default'; ?>">
+	    	<li<?php if($this->tabs["id"][$i] != '') echo ' id="'.($this->tabs['id'][$i]).'"'; ?> class="gkTab gkTabs-<?php echo ($i+1) . $active_class; ?>" data-animation="<?php echo $this->tabs['animation'][$i]!= '' ? $this->tabs['animation'][$i] : 'default'; ?>">
 	    		<?php if($this->config['tabs_spans'] == '1'): ?><span><?php endif; ?>
 	    			<?php echo $this->tabs["title"][$i]; ?>
 	    		<?php if($this->config['tabs_spans'] == '1'): ?></span><?php endif; ?>
@@ -37,9 +41,13 @@ defined('_JEXEC') or die('Restricted access');
 		
 		<?php if($this->config['tabs_position'] == 'bottom' || $this->config['tabs_position'] == 'right') : ?>
 		<ol class="gkTabsNav">
+			<?php if($this->config['tabs_pre_text'] != '') : ?>
+			<li class="gkTabsPreText"><strong><?php echo $this->config['tabs_pre_text']; ?></strong></li>
+			<?php endif ; ?>
+			
 			<?php for($i = 0; $i < count($this->tabs["title"]); $i++) : ?>
 			<?php $active_class = ($this->active_tab == $i + 1) ? ' active' : ''; ?>
-			<li<?php if($this->tabs["id"][$i] != '') echo ' id="'.($this->tabs['id'][$i]).'"'; ?> class="gkTabs-<?php echo ($i+1) . $active_class; ?>" data-animation="<?php echo $this->tabs['animation'][$i]!= '' ? $this->tabs['animation'][$i] : 'default'; ?>">
+			<li<?php if($this->tabs["id"][$i] != '') echo ' id="'.($this->tabs['id'][$i]).'"'; ?> class="gkTab gkTabs-<?php echo ($i+1) . $active_class; ?>" data-animation="<?php echo $this->tabs['animation'][$i]!= '' ? $this->tabs['animation'][$i] : 'default'; ?>">
 				<?php if($this->config['tabs_spans'] == '1'): ?><span><?php endif; ?>
 					<?php echo $this->tabs["title"][$i]; ?>
 				<?php if($this->config['tabs_spans'] == '1'): ?></span><?php endif; ?>
@@ -56,7 +64,7 @@ defined('_JEXEC') or die('Restricted access');
 			$this->config['tabs_position'] == 'bottom' ||
 			$this->config['tabs_position'] == 'disabled'
 		)
-		) : ?>
+	) : ?>
 	<div class="gkTabsButtonNext">next</div>
 	<div class="gkTabsButtonPrev">prev</div>
 	<?php endif; ?>

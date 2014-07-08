@@ -2,12 +2,12 @@
 <extension type="module" version="3.0" client="site" method="upgrade">
 	<name>Tabs GK5</name>
 	<author>GavickPro</author>
-	<creationDate>01/05/2014</creationDate>
+	<creationDate>08/07/2014</creationDate>
 	<copyright>Copyright (C) 2011-2014 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
 	<authorUrl>www.gavickpro.com</authorUrl>
-	<version>1.6.1</version>
+	<version>1.7.0</version>
 	<description><![CDATA[
 		<style type="text/css">
 			span.readonly { padding: 10px; font-family: Arial; font-size:13px !important; font-weight: normal !important; text-align: justify; color: #4d4d4d; line-height: 24px; }
@@ -21,7 +21,7 @@
 			span.readonly p.license { border-top: 1px solid #eee; font-size: 11px; margin: 30px 26px 0; padding: 6px 0; }
 		</style>
 		
-		<span class="readonly"><h1>Tabs GK5<small>ver. 1.6.1</small></h1><p>GK5 is one product of the next generation of GavickPro extensions designed exclusively for Joomla 2.5+.</p><p>With the Tabs GK5 module, you can implement space-saving tabs on websites and incorporate a variety of content types via modules or user-defined custom HTML code.  Thanks to the tab management system we've integrated into the module, Tabs GK5 remains easy, intuitive and quick to configure.  With built-in support for external data sources, the possibilities for implementing this new release are unlimited!</p> <p class='homepage'><a href='https://www.gavick.com/best-free-joomla-tab-module.html' target='_blank'>Learn more at the Tabs GK5 project website.</a></p><p class='license'>Tabs GK5 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
+		<span class="readonly"><h1>Tabs GK5<small>ver. 1.7.0</small></h1><p>GK5 is one product of the next generation of GavickPro extensions designed exclusively for Joomla 2.5+.</p><p>With the Tabs GK5 module, you can implement space-saving tabs on websites and incorporate a variety of content types via modules or user-defined custom HTML code.  Thanks to the tab management system we've integrated into the module, Tabs GK5 remains easy, intuitive and quick to configure.  With built-in support for external data sources, the possibilities for implementing this new release are unlimited!</p> <p class='homepage'><a href='https://www.gavick.com/best-free-joomla-tab-module.html' target='_blank'>Learn more at the Tabs GK5 project website.</a></p><p class='license'>Tabs GK5 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
 		<span class='tooltip-content'>Advanced tabs module for Joomla! 3.x</span>
 	]]></description>
 	<files>
@@ -101,6 +101,8 @@
 				        <option value="disabled">MOD_TABS_DISABLED</option>
 				</field>
 				
+				<field name="tabs_pre_text" type="text" size="20" default="" label="MOD_TABS_PRE_TEXT" description="MOD_TABS_PRE_TEXT_DESC" />
+
 				<field name="tabs_width" type="text" size="1" class="input-pixels text_area input-medium" default="200" label="MOD_TABS_TABS_WIDTH" description="MOD_TABS_TABS_WIDTH_DESC" />
 				
 				<field name="tabs_spans" type="radio" class="btn-group" default="0" label="MOD_TABS_SPANS" description="MOD_TABS_SPANS_DESC">
@@ -136,6 +138,10 @@
 				        <option value="opacity">MOD_TABS_OPACITY</option>
 				        <option value="slide_vertical">MOD_TABS_SLIDE_VERTICAL</option>
 				        <option value="slide_horizontal">MOD_TABS_SLIDE_HORIZONTAL</option>
+				        <option value="scale">MOD_TABS_SLIDE_SCALE</option>
+				        <option value="rotate_x">MOD_TABS_SLIDE_ROTATE_X</option>
+				        <option value="rotate_y">MOD_TABS_SLIDE_ROTATE_Y</option>
+				        <option value="rotate_z">MOD_TABS_SLIDE_ROTATE_Z</option>
 				</field>
 
 			</fieldset>
@@ -176,6 +182,11 @@
 				</field> 
 				
 				<field name="include_jquery" type="radio" class="btn-group" default="0" label="MOD_TABS_INCLUDE_JQUERY" description="MOD_TABS_INCLUDE_JQUERY_DESC">
+				        <option value="0">MOD_TABS_DISABLED</option>
+				        <option value="1">MOD_TABS_ENABLED</option>
+				</field>
+				
+				<field name="rtl" type="radio" class="btn-group" default="0" label="MOD_TABS_RTL_SUPPORT" description="MOD_TABS_RTL_SUPPORT_DESC">
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
