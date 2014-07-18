@@ -43,6 +43,7 @@
 	z-index: 1!important;
 }
 .gkTabsItem.gk-active {
+	left: 0;
 	position: relative;
 	top: 0;
 	z-index: 1!important;
