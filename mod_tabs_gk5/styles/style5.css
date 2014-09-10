@@ -111,6 +111,7 @@
 	opacity: 0;
 }
 .gkTabsItem.gk-opacity.gk-active {
+	left: 0;
 	opacity: 1;
 }
 .gkTabsItem.gk-slide_vertical.gk-hide {
