@@ -199,7 +199,7 @@ class TabsGK5Helper {
 			$document->addStyleDeclaration('.gkTabsItem { left: auto; right: -9999px; }'."\n");
 		}
 		// include main module view
-		require(JModuleHelper::getLayoutPath('mod_tabs_gk5', 'default'));
+		require(JModuleHelper::getLayoutPath('mod_tabs_gk5', $this->config['layout']));
 	}
 	// function to generate the module tabs
 	public function moduleRender() {		
