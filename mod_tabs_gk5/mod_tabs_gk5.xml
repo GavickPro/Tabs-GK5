@@ -189,6 +189,14 @@
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+			</fieldset>
 			<!-- about us -->
 			<fieldset name="TABS_ABOUT_US" addfieldpath="/modules/mod_tabs_gk5/admin/elements">
 			    <field type="about" name="about_us" /> 
