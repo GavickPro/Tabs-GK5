@@ -149,22 +149,22 @@ var tabsGK5Animation = function(i, tabs_wrapper, tabs, items, config) {
 		}
 		
 		tabs.removeClass('gk-active');
-		tabs[i].addClass('gk-active');
-		tabs[config['previous_tab']].removeClass('gk-active');
-		tabs[config['previous_tab']].addClass('gk-hidden');
-		tabs[i].removeClass('gk-hide');
-		tabs[i].removeClass('gk-hidden');
-		tabs[i].addClass('gk-active');
+		jQuery(tabs[i]).addClass('gk-active');
+		jQuery(tabs[config['previous_tab']]).removeClass('gk-active');
+		jQuery(tabs[config['previous_tab']]).addClass('gk-hidden');
+		jQuery(tabs[i]).removeClass('gk-hide');
+		jQuery(tabs[i]).removeClass('gk-hidden');
+		jQuery(tabs[i]).addClass('gk-active');
 		
-		items[config['previous_tab']].removeClass('active');
-		items[i].addClass('active');
+		jQuery(items[config['previous_tab']]).removeClass('active');
+		jQuery(items[i]).addClass('active');
 		
 		var prev = config['previous_tab'];
 		
 		setTimeout(function() {
-			if(tabs[prev].hasClass('gk-hidden') && !tabs[prev].hasClass('gk-active')) {
-				tabs[prev].removeClass('gk-hidden');
-				tabs[prev].addClass('gk-hide');
+			if(jQuery(tabs[prev]).hasClass('gk-hidden') && !jQuery(tabs[prev]).hasClass('gk-active')) {
+				jQuery(tabs[prev]).removeClass('gk-hidden');
+				jQuery(tabs[prev]).addClass('gk-hide');
 			}
 		}, 350);
 		

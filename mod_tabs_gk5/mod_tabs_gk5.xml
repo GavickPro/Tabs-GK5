@@ -2,12 +2,12 @@
 <extension type="module" version="3.0" client="site" method="upgrade">
 	<name>Tabs GK5</name>
 	<author>GavickPro</author>
-	<creationDate>11/09/2014</creationDate>
-	<copyright>Copyright (C) 2011-2014 GavickPro. All rights reserved.</copyright>
+	<creationDate>27/01/2015</creationDate>
+	<copyright>Copyright (C) 2011-2015 GavickPro. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>info@gavick.com</authorEmail>
 	<authorUrl>www.gavickpro.com</authorUrl>
-	<version>1.7.2</version>
+	<version>1.7.3</version>
 	<description><![CDATA[
 		<style type="text/css">
 			span.readonly { padding: 10px; font-family: Arial; font-size:13px !important; font-weight: normal !important; text-align: justify; color: #4d4d4d; line-height: 24px; }
@@ -21,7 +21,7 @@
 			span.readonly p.license { border-top: 1px solid #eee; font-size: 11px; margin: 30px 26px 0; padding: 6px 0; }
 		</style>
 		
-		<span class="readonly"><h1>Tabs GK5<small>ver. 1.7.2</small></h1><p>GK5 is one product of the next generation of GavickPro extensions designed exclusively for Joomla 2.5+.</p><p>With the Tabs GK5 module, you can implement space-saving tabs on websites and incorporate a variety of content types via modules or user-defined custom HTML code.  Thanks to the tab management system we've integrated into the module, Tabs GK5 remains easy, intuitive and quick to configure.  With built-in support for external data sources, the possibilities for implementing this new release are unlimited!</p> <p class='homepage'><a href='https://www.gavick.com/best-free-joomla-tab-module.html' target='_blank'>Learn more at the Tabs GK5 project website.</a></p><p class='license'>Tabs GK5 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
+		<span class="readonly"><h1>Tabs GK5<small>ver. 1.7.3</small></h1><p>GK5 is one product of the next generation of GavickPro extensions designed exclusively for Joomla 2.5+.</p><p>With the Tabs GK5 module, you can implement space-saving tabs on websites and incorporate a variety of content types via modules or user-defined custom HTML code.  Thanks to the tab management system we've integrated into the module, Tabs GK5 remains easy, intuitive and quick to configure.  With built-in support for external data sources, the possibilities for implementing this new release are unlimited!</p> <p class='homepage'><a href='https://www.gavick.com/best-free-joomla-tab-module.html' target='_blank'>Learn more at the Tabs GK5 project website.</a></p><p class='license'>Tabs GK5 is released under the <a target="_blank" href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL v2 license.</a></p></span>
 		<span class='tooltip-content'>Advanced tabs module for Joomla! 3.x</span>
 	]]></description>
 	<files>
@@ -165,6 +165,11 @@
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
 				
+				<field name="module_wrap" type="radio" class="btn-group" default="0" label="MOD_TABS_MODULE_WRAP" description="MOD_TABS_MODULE_WRAP_DESC">
+				        <option value="0">MOD_TABS_DISABLED</option>
+				        <option value="1">MOD_TABS_ENABLED</option>
+				</field>
+				
 				<field name="useCSS" type="list" default="1" class="input-medium" label="MOD_TABS_USE_CSS" description="MOD_TABS_USE_CSS_DESC">
 				        <option value="0">MOD_TABS_FORCE_DISABLED</option>
 				        <option value="1">MOD_TABS_FORCE_ENABLED</option>
@@ -190,6 +195,9 @@
 				        <option value="0">MOD_TABS_DISABLED</option>
 				        <option value="1">MOD_TABS_ENABLED</option>
 				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
 			</fieldset>
 			<!-- about us -->
 			<fieldset name="TABS_ABOUT_US" addfieldpath="/modules/mod_tabs_gk5/admin/elements">
