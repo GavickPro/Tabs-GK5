@@ -185,7 +185,7 @@ class TabsGK5Helper {
 			"cookie_save" => 		$this->config['cookie_tab_selection'],
 			"auto_height" =>		($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 0 : $this->config['module_auto_height'],
 			"module_height" =>		$this->config['module_height'],
-			"rtl" => $this->config['rtl']
+			"rtl" => isset($this->config['rtl']) ? $this->config['rtl'] : 0
 		);
 		// store it as JSON
 		$config_data = str_replace('"', '\'', json_encode($config_data));
@@ -194,12 +194,12 @@ class TabsGK5Helper {
 			$document->addStyleDeclaration('#'.$this->config['module_id'].' .gkTabsWrap > ol { width: '.$this->config['tabs_width'].'px; }'. "\n");
 		}
 		// override styles for RTL
-		if($this->config['rtl'] == 1) {
+		if(isset($this->config['rtl']) && $this->config['rtl'] == 1) {
 			$document->addStyleDeclaration('.gkTabsItem.active { left: auto; right: 0; }'."\n");
 			$document->addStyleDeclaration('.gkTabsItem { left: auto; right: -9999px; }'."\n");
 		}
 		// include main module view
-		require(JModuleHelper::getLayoutPath('mod_tabs_gk5', $this->config['layout']));
+		require(JModuleHelper::getLayoutPath('mod_tabs_gk5', isset($this->config['layout']) ? $this->config['layout'] : 'default'));
 	}
 	// function to generate the module tabs
 	public function moduleRender() {		

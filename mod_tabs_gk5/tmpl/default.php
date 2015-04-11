@@ -20,7 +20,7 @@ defined('_JEXEC') or die('Restricted access');
 	<div class="gkTabsWrap <?php echo ($this->config['tabs_position'] == 'left' || $this->config['tabs_position'] == 'right') ? 'horizontal' : 'vertical'; ?>">
 	    <?php if($this->config['tabs_position'] == 'top' || $this->config['tabs_position'] == 'left') : ?>
 	    <ol class="gkTabsNav">
-	    	<?php if($this->config['tabs_pre_text'] != '') : ?>
+	    	<?php if(isset($this->config['tabs_pre_text']) && $this->config['tabs_pre_text'] != '') : ?>
 	    	<li class="gkTabsPreText"><strong><?php echo $this->config['tabs_pre_text']; ?></strong></li>
 	    	<?php endif ; ?>
 	    	
